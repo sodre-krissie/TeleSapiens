@@ -1,7 +1,7 @@
 
 /*
 
-<div class="funçao">TeleSapiens_GeniallyFunctions</div><script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" async></script>
+<div class="funçao">TeleSapiens_GeniallyFunctions</div><script src="https://github.com/sodre-krissie/TeleSapiens/blob/main/TS_GeniallyFunctions.js" async></script>
 
 */
 
@@ -15,11 +15,6 @@ document.head.appendChild(FileSaver);
 
 
 function takeScreenshot(){
-    console.log("clique");
-    html2canvas(document.body).then(canvas => {
-    canvas.toBlob(function(blob) {
-    window.saveAs(blob, 'my_image.png');
+
     console.log("Deu certo!");
-    });
-    });
 }
