@@ -6,25 +6,20 @@
 
 */
 
-function handleOptions(request) {
-    if (request.headers.get("Origin") !== null &&
-        request.headers.get("Access-Control-Request-Method") !== null &&
-        request.headers.get("Access-Control-Request-Headers") !== null) {
-      // Handle CORS pre-flight request.
-      return new Response(null, {
-        headers: corsHeaders
-      })
-    } else {
-      // Handle standard OPTIONS request.
-      return new Response(null, {
+exports.handler = async (event) => {
+    const response = {
+        statusCode: 200,
         headers: {
-          "Allow": "GET, OPTIONS",
-        }
-      })
-    }
-  }
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "https://github.com/sodre-krissie/TeleSapiens",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+};
 
-    /* Códigos iniciam aqui 
+/* Códigos iniciam aqui 
 
 var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
@@ -36,7 +31,7 @@ document.head.appendChild(FileSaver);
 
 */
 
-function takeScreenshot(){
+document.getElementById("botao2").onclick = function takeScreenshot(){
 
     console.log("Deu certo!");
 }
