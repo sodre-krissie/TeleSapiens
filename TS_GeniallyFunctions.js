@@ -14,7 +14,7 @@ FileSaver.src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileS
 document.head.appendChild(FileSaver);
 
 
-function takeScreenshot(){
+document.getElementById('botao2').onclick = function takeScreenshot(){
 
     console.log("Deu certo!");
 }
