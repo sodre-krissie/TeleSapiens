@@ -7,7 +7,7 @@
     color: #ECF0F1;
 }
 </style>
-<div class="funçao">TeleSapiens_GeniallyFunctions</div><script defer type="text/javascript" src="https://github.com/sodre-krissie/TeleSapiens/blob/main/TS_GeniallyFunctions.js"></script>
+<div class="funçao">TeleSapiens_GeniallyFunctions</div><script async type="text/javascript" src="https://github.com/sodre-krissie/TeleSapiens/blob/main/TS_GeniallyFunctions.js"></script>
 
 //Copiar até aqui e inserir na tela do Genial.ly */
 
@@ -18,22 +18,16 @@ Em caso de erro, acionar: ksodrE@telesapiens.com.br
 
 */
 /*
-exports.handler = async (event) => {
-    const response = {
-        statusCode: 200,
-        headers: {
-            "Access-Control-Allow-Headers" : "Content-Type",
-            "Access-Control-Allow-Origin": "https://github.com/sodre-krissie/TeleSapiens",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-        },
-        body: JSON.stringify('Hello from Lambda!'),
-    };
-    return response;
-};
+
+Inseriur código para habilitar CORS
 
 */
 
 /* Códigos iniciam aqui */
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT');
+jQuery.support.cors = true;
 
 var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
@@ -43,12 +37,18 @@ var FileSaver = document.createElement('script');
 FileSaver.src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
 document.head.appendChild(FileSaver);
 
+var jQuery = document.createElement('script');
+jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
+document.head.appendChild(jQuery);
 
 
 function takeScreenshot(){
-    console.log("Deu certo!");
+    console.log("Botão clicado");
+    html2canvas(document.body).then(canvas => {
+    canvas.toBlob(function(blob) {
+    window.saveAs(blob, 'my_image.png');
+    console.log("Screenshot finalizado");
+    });
+    });
 }
 
-document.getElementsByTagName("botao2").onclick = function(){
-    console.log("Deu errado?");
-}
