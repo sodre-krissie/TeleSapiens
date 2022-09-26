@@ -7,7 +7,7 @@
     color: #ECF0F1;
 }
 </style>
-<div class="funçao">TeleSapiens_GeniallyFunctions</div><script async type="text/javascript" src="https://github.com/sodre-krissie/TeleSapiens/blob/main/TS_GeniallyFunctions.js"></script>
+<div class="funçao">TeleSapiens_GeniallyFunctions</div><script async type="application/javascript" src="https://github.com/sodre-krissie/TeleSapiens/blob/main/TS_GeniallyFunctions.js"></script>
 
 //Copiar até aqui e inserir na tela do Genial.ly */
 
@@ -25,9 +25,10 @@ Inseriur código para habilitar CORS
 
 /* Códigos iniciam aqui */
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT');
-jQuery.support.cors = true;
+header("Content-Type: application/javascript")
+header("Access-Control-Allow-Origin: https://github.com/sodre-krissie/TeleSapiens/");
+header("Access-Control-Allow-Methods: GET, POST, PUT");
+//jQuery.support.cors = true;
 
 var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
