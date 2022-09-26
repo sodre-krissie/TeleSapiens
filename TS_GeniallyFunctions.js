@@ -4,31 +4,25 @@
 <div class="funçao">TeleSapiens_GeniallyFunctions</div><script defer type="text/javascript" src="https://github.com/sodre-krissie/TeleSapiens/blob/main/TS_GeniallyFunctions.js"></script>
 
 
-
-module.exports = {
-    async Headers(){
-        return[
-            {
-                source: '/:path*',
-                Headers: [
-                    {key: 'Access-Control-Allow-Credentials', value: 'true'},
-                    {key: 'Access-Control-Allow-Origins', value: '*'},
-                    {key: 'Access-Control-Allow-Origins', value: 'POST, GET, PUT, OPTIONS, DELETE, PATCH'},
-                    {key: 'Access-Control-Allow-Headers', value: 'Content-Type'},
-                ]
-            }
-        ]
-    }
-}
-
 */
 
-(function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.html2canvas = factory());
-}(this, (function () { 'use strict';
-
+function handleOptions(request) {
+    if (request.headers.get("Origin") !== null &&
+        request.headers.get("Access-Control-Request-Method") !== null &&
+        request.headers.get("Access-Control-Request-Headers") !== null) {
+      // Handle CORS pre-flight request.
+      return new Response(null, {
+        headers: corsHeaders
+      })
+    } else {
+      // Handle standard OPTIONS request.
+      return new Response(null, {
+        headers: {
+          "Allow": "GET, OPTIONS",
+        }
+      })
+    }
+  }
 
     /* Códigos iniciam aqui 
 
@@ -46,5 +40,3 @@ function takeScreenshot(){
 
     console.log("Deu certo!");
 }
-
-})))
