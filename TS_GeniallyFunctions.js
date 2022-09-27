@@ -19,37 +19,54 @@ Em caso de erro, acionar: ksodrE@telesapiens.com.br
 */
 /*
 
-Inseriur código para habilitar CORS
+Inserir código em Node.js (?) para habilitar CORS no Genial.ly
+npm install
 
 */
 
 /* Códigos iniciam aqui */
 
-header("Content-Type: application/javascript")
-header("Access-Control-Allow-Origin: https://github.com/sodre-krissie/TeleSapiens/");
-header("Access-Control-Allow-Methods: GET, POST, PUT");
-//jQuery.support.cors = true;
 
-var html2canvas = document.createElement('script');
+const html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 document.head.appendChild(html2canvas);
 
-var FileSaver = document.createElement('script');
+const FileSaver = document.createElement('script');
 FileSaver.src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
 document.head.appendChild(FileSaver);
 
-var jQuery = document.createElement('script');
+const jQuery = document.createElement('script');
 jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
 document.head.appendChild(jQuery);
 
+//Função de Screenshot (printscreen)
 
 function takeScreenshot(){
     console.log("Botão clicado");
     html2canvas(document.body).then(canvas => {
-    canvas.toBlob(function(blob) {
-    window.saveAs(blob, 'my_image.png');
-    console.log("Screenshot finalizado");
-    });
+        canvas.toBlob(function(blob) {
+        window.saveAs(blob, 'TS_MinhaImagem.png');
+        console.log("Screenshot finalizado");
+        });
     });
 }
 
+// Função de Feedback Negativo
+
+    var tentativa = 1;
+    //inserir abaixo a quantidade máxima de tentativas:
+    var numeroMaximoTentativa = 2;
+
+function feedNegativo(){
+    if (tentativa < numeroMaximoTentativa) {
+        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
+        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ERROU.\nTENTE NOVAMENTE.");
+        tentativa++;
+        
+    }else{
+        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
+        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
+        tentativa++;
+    }
+
+}
