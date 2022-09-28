@@ -54,10 +54,28 @@ function takeScreenshot(){
 // Função de Feedback Negativo
 
     var tentativa = 1;
+    
+function feedNegativo(){
     //inserir abaixo a quantidade máxima de tentativas:
     var numeroMaximoTentativa = 2;
 
-function feedNegativo(){
+    if (tentativa < numeroMaximoTentativa) {
+        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
+        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ERROU.\nTENTE NOVAMENTE.");
+        tentativa++;
+        
+    }else{
+        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
+        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
+        tentativa++;
+    }
+
+}
+
+function feedNegativo2(){
+    //inserir abaixo a quantidade máxima de tentativas:
+    var numeroMaximoTentativa = 3;
+    
     if (tentativa < numeroMaximoTentativa) {
         console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
         alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ERROU.\nTENTE NOVAMENTE.");
