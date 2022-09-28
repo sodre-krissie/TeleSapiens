@@ -88,3 +88,10 @@ function feedNegativo2(){
     }
 
 }
+
+document.getElementById("avance").style.visibility = "hidden";
+
+function opacityHideToVisible(){
+    document.getElementById("avance").style.visibility = "visible";
+    console.log("PARABENS, VOCE ACERTOU!")   
+}
