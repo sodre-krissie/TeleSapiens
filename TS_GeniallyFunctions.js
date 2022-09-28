@@ -13,8 +13,12 @@
 
 /*
 
-Códigos desenvolvidos pela TeleSapiens
-Em caso de erro, acionar: ksodrE@telesapiens.com.br
+Códigos desenvolvidos pela TeleSapiens EdTech 
+linkedIn: https://www.linkedin.com/company/telesapiens
+
+Em caso de erro, acionar: Krissie Sodré 
+ksodrE@telesapiens.com.br
+linkedIn: https://www.linkedin.com/in/sodre-krissie
 
 */
 /*
@@ -24,20 +28,23 @@ npm install
 
 */
 
-/* Códigos iniciam aqui */
+/* Agora que você está preparado, os...
+Códigos iniciam a partir desse ponto */
 
 
-const html2canvas = document.createElement('script');
+//não trocar por "const" ou "let"
+var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 document.head.appendChild(html2canvas);
 
-const FileSaver = document.createElement('script');
+var FileSaver = document.createElement('script');
 FileSaver.src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
 document.head.appendChild(FileSaver);
 
-const jQuery = document.createElement('script');
+var jQuery = document.createElement('script');
 jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
 document.head.appendChild(jQuery);
+
 
 //Função de Screenshot (printscreen)
 
@@ -51,7 +58,7 @@ function takeScreenshot(){
     });
 }
 
-// Função de Feedback Negativo
+// Função de Feedback Negativo (2 tentativas)
 
     var tentativa = 1;
     
@@ -69,8 +76,10 @@ function feedNegativo(){
         alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
         tentativa++;
     }
-
 }
+
+
+// Função de Feedback Negativo (3 tentativas)
 
 function feedNegativo2(){
     //inserir abaixo a quantidade máxima de tentativas:
@@ -86,12 +95,13 @@ function feedNegativo2(){
         alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
         tentativa++;
     }
-
 }
+
+// Função de Feedback Positivo (botão de avançar aparece)
 
 document.getElementById("avance").style.visibility = "hidden";
 
 function opacityHideToVisible(){
     document.getElementById("avance").style.visibility = "visible";
-    console.log("PARABENS, VOCE ACERTOU!")   
+    console.log("PARABENS, VOCE ACERTOU!");   
 }
