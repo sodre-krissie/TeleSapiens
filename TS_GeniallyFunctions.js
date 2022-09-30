@@ -23,7 +23,7 @@ linkedIn: https://www.linkedin.com/in/sodre-krissie
 */
 /*
 
-Inserir código em Node.js (?) para habilitar CORS no Genial.ly
+Inserir código em Node.js (?) para habilitar CORB no Genial.ly
 npm install
 
 */
@@ -32,7 +32,7 @@ npm install
 Códigos iniciam a partir desse ponto */
 
 
-//não trocar por "const" ou "let"
+//não trocar "var" por "const" ou "let"
 var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 document.head.appendChild(html2canvas);
