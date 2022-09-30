@@ -53,6 +53,8 @@ function takeScreenshot(){
     html2canvas(document.body).then(canvas => {
         canvas.toBlob(function(blob) {
         window.saveAs(blob, 'TS_MinhaImagem.png');
+        // Função de Avançar após Screenshot
+        document.getElementById("avance").style.visibility = "visible";
         console.log("Screenshot finalizado");
         });
     });
@@ -96,6 +98,7 @@ function feedNegativo2(){
         tentativa++;
     }
 }
+
 
 // Função de Feedback Positivo (botão de avançar aparece)
 
