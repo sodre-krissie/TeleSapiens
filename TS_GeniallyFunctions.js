@@ -45,6 +45,9 @@ var jQuery = document.createElement('script');
 jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
 document.head.appendChild(jQuery);
 
+//Botão de avançar fica escondido até alguma função disparar para ele aparecer
+document.getElementById("avance").style.visibility = "hidden";
+
 
 //Função de Screenshot (printscreen)
 
@@ -101,8 +104,6 @@ function feedNegativo2(){
 
 
 // Função de Feedback Positivo (botão de avançar aparece)
-
-document.getElementById("avance").style.visibility = "hidden";
 
 function opacityHideToVisible(){
     document.getElementById("avance").style.visibility = "visible";
