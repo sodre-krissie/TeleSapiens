@@ -67,7 +67,7 @@ function takeScreenshot(){
 
     var tentativa = 1;
     
-function feedNegativo(){
+function feedNegativo2(){
     //inserir abaixo a quantidade máxima de tentativas:
     var numeroMaximoTentativa = 2;
 
@@ -86,7 +86,7 @@ function feedNegativo(){
 
 // Função de Feedback Negativo (3 tentativas)
 
-function feedNegativo2(){
+function feedNegativo3(){
     //inserir abaixo a quantidade máxima de tentativas:
     var numeroMaximoTentativa = 3;
     
@@ -108,4 +108,16 @@ function feedNegativo2(){
 function opacityHideToVisible(){
     document.getElementById("avance").style.visibility = "visible";
     console.log("PARABENS, VOCE ACERTOU!");   
+}
+
+
+//Função de pares (selecionar figuras similares apaga as opções corretas na tela)
+
+function selecionaPares01A(){
+    var opcao01 = document.getElementById("opcao01");
+    var parOpcao01 = document.getElementById("parOpcao01");
+    console.log("Disparou");
+        function selecionaPares01B(){
+            console.log("Disparou 2x");
+        }
 }
