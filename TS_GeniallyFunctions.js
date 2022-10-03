@@ -113,11 +113,9 @@ function opacityHideToVisible(){
 
 //Função de pares (selecionar figuras similares apaga as opções corretas na tela)
 
+    var opcao01A = document.getElementById("opcao01A");
+    var opcao01B = document.getElementById("opcao01B");
+
 function selecionaPares01A(){
-    var opcao01 = document.getElementById("opcao01");
-    var parOpcao01 = document.getElementById("parOpcao01");
     console.log("Disparou");
-        function selecionaPares01B(){
-            console.log("Disparou 2x");
-        }
 }
