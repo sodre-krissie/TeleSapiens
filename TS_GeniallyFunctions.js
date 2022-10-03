@@ -46,7 +46,7 @@ jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 document.head.appendChild(jQuery);
 
 //Botão de avançar fica escondido até alguma função disparar para ele aparecer
-document.getElementById("avance").style.visibility = "hidden";
+//document.getElementById("avance").style.visibility = "hidden";
 
 
 //Função de Screenshot (printscreen)
@@ -105,17 +105,71 @@ function feedNegativo3(){
 
 // Função de Feedback Positivo (botão de avançar aparece)
 
-function opacityHideToVisible(){
+/*function opacityHideToVisible(){
     document.getElementById("avance").style.visibility = "visible";
     console.log("PARABENS, VOCE ACERTOU!");   
-}
+}*/
 
 
 //Função de pares (selecionar figuras similares apaga as opções corretas na tela)
 
-    var opcao01A = document.getElementById("opcao01A");
-    var opcao01B = document.getElementById("opcao01B");
+const cards = document.querySelectorAll('.memory-card');
 
-function selecionaPares01A(){
-    console.log("Disparou");
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
+
+  this.classList.add('flip');
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+
+    return;
+  }
+
+  secondCard = this;
+  checkForMatch();
 }
+
+function checkForMatch() {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+  isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+
+  resetBoard();
+}
+
+function unflipCards() {
+  lockBoard = true;
+
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+
+    resetBoard();
+  }, 1500);
+}
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+
+cards.forEach(card => card.addEventListener('click', flipCard));
