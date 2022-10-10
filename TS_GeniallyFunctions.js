@@ -103,15 +103,7 @@ function feedNegativo3(){
 }
 
 
-// Função de Feedback Positivo (botão de avançar aparece)
-
-/*function opacityHideToVisible(){
-    document.getElementById("avance").style.visibility = "visible";
-    console.log("PARABENS, VOCE ACERTOU!");   
-}*/
-
-
-//Função de pares (selecionar figuras similares apaga as opções corretas na tela)
+//Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)
 
 const cards = document.querySelectorAll('.memory-card');
 
