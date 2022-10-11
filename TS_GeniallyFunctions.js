@@ -33,7 +33,7 @@ Códigos iniciam a partir desse ponto */
 
 
 //não trocar "var" por "const" ou "let"
-var html2canvas = document.createElement('script');
+/*var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 document.head.appendChild(html2canvas);
 
@@ -43,7 +43,7 @@ document.head.appendChild(FileSaver);
 
 var jQuery = document.createElement('script');
 jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-document.head.appendChild(jQuery);
+document.head.appendChild(jQuery);*/
 
 //Botão de avançar fica escondido até alguma função disparar para ele aparecer
 //document.getElementById("avance").style.visibility = "hidden";
