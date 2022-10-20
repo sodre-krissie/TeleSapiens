@@ -8,4 +8,5 @@
 1C, 2A, 3B
 */
 
+
 /*Função de ligar e desligar as opções*/
