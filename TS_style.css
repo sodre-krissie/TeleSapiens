@@ -1,20 +1,50 @@
-.telaDeDesenho{
+.telaDeLigarPontos{
     position: relative;
     margin: 0;
     padding: 20px;
     overflow: hidden;
 }
-.opcoes{
+.ligarPontos_opcoes{
     background: black;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
 }
 
-.opcoes:hover{
-    background-color: blue;
-}
+/* Posição das bolinhas */
 
-#opcaoA{
-    margin-left: 600px;
-}
+    #LP_opcao01{
+        position: fixed;
+        top: 20px;
+        left: 20px;
+    }
+
+    #LP_opcao02{
+        position: fixed;
+        top: 110px;
+        left: 20px;
+    }
+
+    #LP_opcao03{
+        position: fixed;
+        top: 200px;
+        left: 20px;
+    }
+
+    #LP_opcaoA{
+        position: fixed;
+        top: 20px;
+        left: 450px;
+    }
+
+    #LP_opcaoB{
+        position: fixed;
+        top: 110px;
+        left: 450px;
+    }
+
+    #LP_opcaoC{
+        position: fixed;
+        top: 200px;
+        left: 450px;
+    }
