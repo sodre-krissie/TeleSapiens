@@ -5,52 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="TS_style.css">-->
+    <link rel="stylesheet" href="https://msbarquitetura.com.br/TS_style.css">
+    <script async type="application/javascript" src="https://msbarquitetura.com.br/TS_GeniallyFunctions.js"></script>
     <title>Ligar os pontos</title>
 </head>
 
-<style>
-    html,
-    	body {
-	      position: relative;
-	      margin: 0;
-	      overflow: hidden;
-	    }
-    #TelaCartesiana{
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        border: solid 1px blue;
-    }
-</style>
-
 <body>
-    <canvas id="TelaCartesiana"></canvas>
+    <div class="telaDeDesenho">
+        <div class="opcoes" id="opcao01"></div>
+        <div class="opcoes" id="opcaoA"></div>
+        <div class="opcoes" id="opcaoB"></div>
+        <div class="opcoes" id="opcaoC"></div>
+    </div>
 </body>
 
-<script>
-
-    let canvas = document.getElementById("TelaCartesiana");
-    let context = canvas.getContext('2d');
-
-    let WIDTH = document.documentElement.clientWidth;
-    let HEIGHT = document.documentElement.clientHeight;
-
-    canvas.width = WIDTH;
-    canvas.height = HEIGHT;
-
-    console.log("Desenho");
-
-    function draw() {
-    
-    ctx.beginPath();
-    ctx.moveTo(75,50);
-    ctx.lineTo(100,75);
-    ctx.lineTo(100,25);
-    ctx.fill();
-  }
- 
-
-</script>
-    
+<script></script>
 </html>

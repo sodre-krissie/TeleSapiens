@@ -7,7 +7,7 @@
     color: #ECF0F1;
 }
 </style>
-<div class="funçao">TeleSapiens_GeniallyFunctions</div><script async type="application/javascript" src="https://github.com/sodre-krissie/TeleSapiens/blob/main/TS_GeniallyFunctions.js"></script>
+<div class="funçao">TeleSapiens_GeniallyFunctions</div><script async type="application/javascript" src="https://www.msbarquitetura.com.br/TS_GeniallyFunctions.js"></script>
 
 //Copiar até aqui e inserir na tela do Genial.ly */
 
@@ -33,7 +33,7 @@ Códigos iniciam a partir desse ponto */
 
 
 //não trocar "var" por "const" ou "let"
-/*var html2canvas = document.createElement('script');
+var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 document.head.appendChild(html2canvas);
 
@@ -43,7 +43,7 @@ document.head.appendChild(FileSaver);
 
 var jQuery = document.createElement('script');
 jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-document.head.appendChild(jQuery);*/
+document.head.appendChild(jQuery);
 
 //Botão de avançar fica escondido até alguma função disparar para ele aparecer
 //document.getElementById("avance").style.visibility = "hidden";
@@ -70,8 +70,10 @@ function takeScreenshot(){
 function feedNegativo2(){
     //inserir abaixo a quantidade máxima de tentativas:
     var numeroMaximoTentativa = 2;
+    
 
     if (tentativa < numeroMaximoTentativa) {
+      console.log("Isso foi alterado");
         console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
         alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ERROU.\nTENTE NOVAMENTE.");
         tentativa++;

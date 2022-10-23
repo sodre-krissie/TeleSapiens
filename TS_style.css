@@ -1,0 +1,20 @@
+.telaDeDesenho{
+    position: relative;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+}
+.opcoes{
+    background: black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.opcoes:hover{
+    background-color: blue;
+}
+
+#opcaoA{
+    margin-left: 600px;
+}
