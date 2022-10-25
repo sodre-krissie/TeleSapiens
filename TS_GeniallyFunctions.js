@@ -119,7 +119,7 @@ let diametro = d;
     context.fill();
   }
 
-  let isHold = false
+let isHold = false
 
   document.getElementById("TS_canvas").onmousedown = function(){
     isHold = true
@@ -133,7 +133,35 @@ let diametro = d;
       return null
     }
   drawPoint(context, event.clientX, event.clientY)
-  }
+  }   
+
+    //Função Botão Amarelo
+    function TS_botaoAmarelo(){
+      context.fillStyle='rgb(255,213,0)';
+      diametro = d;
+      console.log("Botão amarelo acionado");
+    }
+
+    //Função Botão Azul
+    function TS_botaoAzul(){
+      context.fillStyle='rgb(1, 182, 237)';
+      diametro = d;
+      console.log("Botão azul acionado");
+    }
+
+    //Função Botão Preto
+    function TS_botaoPreto(){
+      context.fillStyle='rgb(0,0,0)';
+      diametro = d;
+      console.log("Botão preto");
+    }
+
+    //Função Botão Verde
+    function TS_botaoVerde(){
+      context.fillStyle='rgb(148,193,31)';
+      diametro = d;
+      console.log("Botão verde acionado");
+    }
 
     //Função Botão Vermelho
     function TS_botaoVermelho(){
@@ -142,35 +170,27 @@ let diametro = d;
       console.log("Botão vermelho acionado");
     }
 
-    //Função Botão Azul
-    document.getElementById('btnBlue').onclick=function botaoAzul(){
-        context.fillStyle='rgb(1, 182, 237)';
-  diametro = d;
-        console.log("Botão azul");
-    }
-    //Função Botão Amarelo
-    document.getElementById('btnYellow').onclick=function botaoAmarelo(){
-        context.fillStyle='rgb(255,213,0)';
-  diametro = d;
-        console.log("Botão amarelo");
-    }
-    //Função Botão Verde
-    document.getElementById('btnGreen').onclick=function botaoVerde(){
-        context.fillStyle='rgb(148,193,31)';
-  diametro = d;
-        console.log("Botão verde");
-    }
     //Função Borracha
-    document.getElementById('btnErase').onclick=function botaoBorracha(){
-        context.clearRect(0, 0, WIDTH, HEIGHT);
-        console.log("Botão borracha");
+    function TS_botaoBorracha(){
+      diametro = 20;
+      context.fillStyle='rgb(244,244,246)';
+      console.log("Botão borracha acionado");
     }
-    //Função Botão Preto
-    document.getElementById('btnBlack').onclick=function botaoPreto(){
-        context.fillStyle='rgb(0,0,0)';
-  diametro = d;
-        console.log("Botão preto");
+    
+    //Função Limpa Tela
+    function TS_limpaTela(){
+      context.clearRect(0, 0, WIDTH, HEIGHT);
+      console.log("Tela limpa");
     }
+
+    //Função Marca Texto
+    function TS_marcaTexto(){
+      context.fillStyle='rgb(204,255,51)';
+      diametro = 20;
+      document.getElementById("TS_canvas").style.opacity = "0.5";
+      console.log("Marca texto acionado");
+    }
+    
 
 /*
 
