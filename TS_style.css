@@ -21,6 +21,23 @@
     height: 100%;
 }
 
+input{
+    all: unset;
+    border: none;
+/*Para alterar a cor do objeto SEM seleção, altere a cor abaixo: 
+    background-color: rgb(244,244,246);*/
+    background-color: #E74C3C;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+input:checked{
+/*Para alterar a cor do objeto COM seleção, altere a cor abaixo: */
+    background-color: #4dc8f4;
+    width: 100%;
+    height: 100%;
+}
+
 .telaDeLigarPontos{
     position: relative;
     margin: 0;
@@ -71,3 +88,47 @@
         top: 200px;
         left: 450px;
     }
+
+    .memory-game {
+        width: 640px;
+        height: 640px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        perspective: 1000px;
+      }
+      
+      .memory-card {
+        width: calc(25% - 10px);
+        height: calc(33.333% - 10px);
+        margin: 5px;
+        position: relative;
+        transform: scale(1);
+        transform-style: preserve-3d;
+        transition: transform .5s;
+        box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+      }
+      
+      .memory-card:active {
+        transform: scale(0.97);
+        transition: transform .2s;
+      }
+      
+      .memory-card.flip {
+        transform: rotateY(180deg);
+      }
+      
+      .front-face,
+      .back-face {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        position: absolute;
+        border-radius: 5px;
+        background: #1C7CCC;
+        backface-visibility: hidden;
+      }
+      
+      .front-face {
+        transform: rotateY(180deg);
+      }
