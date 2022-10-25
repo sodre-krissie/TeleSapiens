@@ -1,38 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<style>
-    /*body{
-        background-color: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: stretch;
-        flex-wrap: wrap;
-    }*/
-    
-    button{
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-        margin: 10px;
-        background-color: #2980B9;
-        color: #ECF0F1;
-        border: solid 1px #ECF0F1;
-        border-radius: 5px;
-        font-size: 25px;
-    }
-</style>
-
-
+<link rel="stylesheet" href="TS_style.css">
+<script async type="application/javascript" src="TS_GeniallyFunctions.js"></script>
+<!--
+<link rel="stylesheet" href="https://msbarquitetura.com.br/TS_style.css">
 <script async type="application/javascript" src="http://msbarquitetura.com.br/TS_GeniallyFunctions.js"></script>
+-->
 
 <body>
-    <button onclick="takeScreenshot()">Take Screenshot</button>
-    <button onclick="feedNegativo2()">Feedback Negativo 1</button>
-    <button onclick="feedNegativo2()">Feedback Negativo 2</button>
-    <button onclick="feedNegativo3()">Feedback Negativo 3</button>
-    <button onclick="opacityHideToVisible()">Feedback Positivo</button>
+    <button class="TS_botao" onclick="takeScreenshot()">Take Screenshot</button>
+    <button class="TS_botao" onclick="feedNegativo2()">Feedback Negativo 1</button>
+    <button class="TS_botao" onclick="feedNegativo2()">Feedback Negativo 2</button><script></script>
+    <button class="TS_botao" onclick="feedNegativo3()">Feedback Negativo 3</button>
+    <button class="TS_botao" onclick="opacityHideToVisible()">Feedback Positivo</button><script></script>
+
+    <button class="TS_botao" onclick="TS_botaoVermelho()">Botão Vermelho</button><script></script>
+    <canvas id="TS_canvas"></canvas>
     
-    <button id="avance">Avançar</button>
+    <button id="avance">Avançar</button><script></script>
 </body>

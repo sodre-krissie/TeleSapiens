@@ -1,17 +1,13 @@
 
 /* Copiar abaixo:
 
-<style>
-.funçao{
-    background-color: #E74C3C;
-    color: #ECF0F1;
-}
-</style>
-<div class="funçao">TeleSapiens_GeniallyFunctions</div><script async type="application/javascript" src="https://www.msbarquitetura.com.br/TS_GeniallyFunctions.js"></script>
+<link rel="stylesheet" href="https://msbarquitetura.com.br/TS_style.css">
+<div class="funçao">TeleSapiens_GeniallyFunctions</div>
+<script async type="application/javascript" src="https://www.msbarquitetura.com.br/TS_GeniallyFunctions.js"></script>
 
-//Copiar até aqui e inserir na tela do Genial.ly */
 
-/*
+/\  Copiar até aqui e inserir na tela do Genial.ly
+
 
 Códigos desenvolvidos pela TeleSapiens EdTech 
 linkedIn: https://www.linkedin.com/company/telesapiens
@@ -20,15 +16,8 @@ Em caso de erro, acionar: Krissie Sodré
 ksodrE@telesapiens.com.br
 linkedIn: https://www.linkedin.com/in/sodre-krissie
 
-*/
-/*
 
-Inserir código em Node.js (?) para habilitar CORB no Genial.ly
-npm install
-
-*/
-
-/* Agora que você está preparado, os...
+Agora que você está preparado, os...
 Códigos iniciam a partir desse ponto */
 
 
@@ -48,19 +37,24 @@ document.head.appendChild(jQuery);
 //Botão de avançar fica escondido até alguma função disparar para ele aparecer
 //document.getElementById("avance").style.visibility = "hidden";
 
+console.log("Aplicação iniciada");
 
 //Função de Screenshot (printscreen)
 
 function takeScreenshot(){
-    console.log("Botão clicado");
+    console.log("Screenshot iniciado");
     html2canvas(document.body).then(canvas => {
         canvas.toBlob(function(blob) {
         window.saveAs(blob, 'TS_MinhaImagem.png');
         // Função de Avançar após Screenshot
-        document.getElementById("avance").style.visibility = "visible";
+        //document.getElementById("avance").style.visibility = "visible";
         console.log("Screenshot finalizado");
         });
     });
+    window.parent.postMessage({ 
+			'func': 'takeScreenshotParent',
+			'id_slide': '1'
+		}, "*" ) 
 }
 
 // Função de Feedback Negativo (2 tentativas)
@@ -73,7 +67,6 @@ function feedNegativo2(){
     
 
     if (tentativa < numeroMaximoTentativa) {
-      console.log("Isso foi alterado");
         console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
         alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ERROU.\nTENTE NOVAMENTE.");
         tentativa++;
@@ -104,6 +97,82 @@ function feedNegativo3(){
     }
 }
 
+// Função de desenho livre
+
+let canvas = document.getElementById("TS_canvas");
+let context = canvas.getContext('2d');
+
+let WIDTH = document.documentElement.clientWidth;
+let HEIGHT = document.documentElement.clientHeight;
+
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
+
+let d = 8;
+let diametro = d;
+
+  function drawPoint(context, x, y) {
+    console.log(`x: ${x}, y: ${y}`)
+    context.beginPath();		  
+    context.arc(x, y, diametro, 0, 2 * Math.PI, false);
+    context.closePath();
+    context.fill();
+  }
+
+  let isHold = false
+
+  document.getElementById("TS_canvas").onmousedown = function(){
+    isHold = true
+  }
+  document.getElementById("TS_canvas").onmouseup = function(){
+    isHold = false
+  }
+
+  document.getElementById("TS_canvas").onmousemove = function (event) {
+    if(isHold == false) {
+      return null
+    }
+  drawPoint(context, event.clientX, event.clientY)
+  }
+
+    //Função Botão Vermelho
+    function TS_botaoVermelho(){
+      context.fillStyle='rgb(255,0,0)';
+      diametro = d;
+      console.log("Botão vermelho acionado");
+    }
+
+    //Função Botão Azul
+    document.getElementById('btnBlue').onclick=function botaoAzul(){
+        context.fillStyle='rgb(1, 182, 237)';
+  diametro = d;
+        console.log("Botão azul");
+    }
+    //Função Botão Amarelo
+    document.getElementById('btnYellow').onclick=function botaoAmarelo(){
+        context.fillStyle='rgb(255,213,0)';
+  diametro = d;
+        console.log("Botão amarelo");
+    }
+    //Função Botão Verde
+    document.getElementById('btnGreen').onclick=function botaoVerde(){
+        context.fillStyle='rgb(148,193,31)';
+  diametro = d;
+        console.log("Botão verde");
+    }
+    //Função Borracha
+    document.getElementById('btnErase').onclick=function botaoBorracha(){
+        context.clearRect(0, 0, WIDTH, HEIGHT);
+        console.log("Botão borracha");
+    }
+    //Função Botão Preto
+    document.getElementById('btnBlack').onclick=function botaoPreto(){
+        context.fillStyle='rgb(0,0,0)';
+  diametro = d;
+        console.log("Botão preto");
+    }
+
+/*
 
 //Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)
 
@@ -167,3 +236,5 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+*/
