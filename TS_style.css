@@ -7,18 +7,20 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    margin: 10px;
+    margin: 0;
     background-color: #2980B9;
     color: #ECF0F1;
     border: solid 1px #ECF0F1;
     border-radius: 5px;
-    font-size: 25px;
+    font-size: 10px;
+    cursor: pointer;
 }
 
 #TS_canvas {
     border: 3px solid darkgray;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    cursor: url(https://www.svgrepo.com/show/189079/pencil.svg), auto;
 }
 
 input{

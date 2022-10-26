@@ -1,9 +1,9 @@
 
 /* Copiar abaixo:
 
-<link rel="stylesheet" href="https://msbarquitetura.com.br/TS_style.css">
+<link rel="stylesheet" href="https://bit.ly/3f2nSUc">
 <div class="funçao">TeleSapiens_GeniallyFunctions</div>
-<script async type="application/javascript" src="https://www.msbarquitetura.com.br/TS_GeniallyFunctions.js"></script>
+<script defer type="application/javascript" src="https://bit.ly/3zhBstH"></script>
 
 
 /\  Copiar até aqui e inserir na tela do Genial.ly
@@ -34,10 +34,16 @@ var jQuery = document.createElement('script');
 jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
 document.head.appendChild(jQuery);
 
+
 //Botão de avançar fica escondido até alguma função disparar para ele aparecer
 //document.getElementById("avance").style.visibility = "hidden";
 
 console.log("Aplicação iniciada");
+
+//Código inserido pelo Davi
+window.parent.postMessage({ 
+  'func': 'callAuthModal',
+}, "*" )
 
 //Função de Screenshot (printscreen)
 
@@ -51,6 +57,7 @@ function takeScreenshot(){
         console.log("Screenshot finalizado");
         });
     });
+    //Código inserido pelo Davi
     window.parent.postMessage({ 
 			'func': 'takeScreenshotParent',
 			'id_slide': '1'
@@ -98,8 +105,16 @@ function feedNegativo3(){
 }
 
 
-//Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)
+//Código inserido pelo Davi
+window.parent.postMessage({ 
+  'func': 'registerAwsner',
+  'id_slide': '1',
+  'correct': 'false'
+}, "*" )
 
+
+//Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)
+/*
 const cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
@@ -160,7 +175,7 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
-
+*/
 
 // Função de desenho livre
 
