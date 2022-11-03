@@ -17,10 +17,12 @@
 }
 
 #TS_canvas {
+    margin: 0;
+    padding: 0;
     border: 3px solid darkgray;
-    width: 100vw;
-    height: 100vh;
-    cursor: url(https://www.svgrepo.com/show/189079/pencil.svg), auto;
+    width: 100%;
+    height: 100%;
+    /*cursor: url(https://www.svgrepo.com/show/189079/pencil.svg), auto;*/
 }
 
 input{

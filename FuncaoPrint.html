@@ -1,0 +1,24 @@
+<html>
+<body>
+    <button class="TS_botao" onclick="takeScreenshot()">Take Screenshot</button>
+</body>
+
+<script>
+    function takeScreenshot(){
+    console.log("Screenshot iniciado");
+    html2canvas(document.body).then(canvas => {
+        canvas.toBlob(function(blob) {
+        window.saveAs(blob, 'TS_MinhaImagem.png');
+        console.log("Screenshot finalizado");
+        });
+    });
+    //Código inserido pelo Davi
+    window.parent.postMessage({ 
+			'func': 'takeScreenshotParent',
+			'id_slide': '1'
+		}, "*" ) 
+}
+</script>
+
+
+</html>

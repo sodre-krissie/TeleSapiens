@@ -47,21 +47,28 @@ window.parent.postMessage({
 
 //Função de Screenshot (printscreen)
 
-function takeScreenshot(){
-    console.log("Screenshot iniciado");
-    html2canvas(document.body).then(canvas => {
-        canvas.toBlob(function(blob) {
-        window.saveAs(blob, 'TS_MinhaImagem.png');
-        // Função de Avançar após Screenshot
-        //document.getElementById("avance").style.visibility = "visible";
-        console.log("Screenshot finalizado");
-        });
-    });
-    //Código inserido pelo Davi
-    window.parent.postMessage({ 
-			'func': 'takeScreenshotParent',
-			'id_slide': '1'
-		}, "*" ) 
+function takeScreenshot() {
+  console.log("Screenshot iniciado");
+  html2canvas(document.body).then(canvas => {
+      canvas.toBlob(function (blob) {
+          console.log(blob)
+          var reader = new FileReader();
+          reader.readAsDataURL(blob);
+          reader.onloadend = function () {
+              var base64data = reader.result;
+              console.log(base64data);
+              localStorage.setItem('user_canvas_screenshot', base64data);
+          }
+      });
+
+      console.log("Screenshot finalizado");
+
+  });
+  //Código inserido pelo Davi
+  window.parent.postMessage({
+      'func': 'takeScreenshotParent',
+      'id_slide': '1'
+  }, "*")
 }
 
 // Função de Feedback Negativo (2 tentativas)
@@ -83,6 +90,14 @@ function feedNegativo2(){
         alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
         tentativa++;
     }
+
+    //Código inserido pelo Davi
+    window.parent.postMessage({ 
+      'func': 'registerAwsner',
+      'id_slide': '1',
+      'correct': 'false'
+    }, "*" )
+    
 }
 
 
@@ -102,15 +117,15 @@ function feedNegativo3(){
         alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
         tentativa++;
     }
+
+    //Código inserido pelo Davi
+    window.parent.postMessage({ 
+      'func': 'registerAwsner',
+      'id_slide': '1',
+      'correct': 'false'
+    }, "*" )
+
 }
-
-
-//Código inserido pelo Davi
-window.parent.postMessage({ 
-  'func': 'registerAwsner',
-  'id_slide': '1',
-  'correct': 'false'
-}, "*" )
 
 
 //Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)

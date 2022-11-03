@@ -3,10 +3,10 @@
 <head>
 <title>Ligar Pontos</title>
 <link rel="stylesheet" href="TS_style.css">
-<script async type="application/javascript" src="TS_GeniallyFunctions.js"></script>
-<!--
-<link rel="stylesheet" href="https://msbarquitetura.com.br/TS_style.css">
-<script async type="application/javascript" src="http://msbarquitetura.com.br/TS_GeniallyFunctions.js"></script>
+<!--<script async type="application/javascript" src="TS_GeniallyFunctions.js"></script>
+
+<link rel="stylesheet" href="https://bit.ly/3f2nSUc">
+<script defer type="application/javascript" src="https://bit.ly/3zhBstH"></script>
 -->
 </head>
 
@@ -21,8 +21,24 @@
             <button class="ligarPontos_opcoes" id="LP_opcaoA"></button>
             <button class="ligarPontos_opcoes" id="LP_opcaoB"></button>
             <button class="ligarPontos_opcoes" id="LP_opcaoC"></button>
+        </div>
+        <div class="LP_linhas">
+            <div id="01A"></div>
         </div>  
     </div>
 </body>
+
+<script>
+
+var el = document.getElementById('LP_opcao01');
+// utiliza método
+var elCoordenadas = el.getBoundingClientRect();
+// verificar as propriedades com as coord
+
+    function ligarPontos(){
+        console.log(elCoordenadas);
+    }
+
+</script>
 
 </html>
