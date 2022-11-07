@@ -73,7 +73,7 @@ function takeScreenshot() {
 
 // Função de Feedback Negativo (2 tentativas)
 
-let tentantiva = 0;
+let tentativa = 0;
 let id_slide = 0;
 
 function feedNegativo2() {
