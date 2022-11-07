@@ -73,59 +73,47 @@ function takeScreenshot() {
 
 // Função de Feedback Negativo (2 tentativas)
 
-    var tentativa = 1;
-    
-function feedNegativo2(){
-    //inserir abaixo a quantidade máxima de tentativas:
-    var numeroMaximoTentativa = 2;
-    
+let tentantiva = 0;
+let id_slide = 0;
 
-    if (tentativa < numeroMaximoTentativa) {
-        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
-        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ERROU.\nTENTE NOVAMENTE.");
-        tentativa++;
-        
-    }else{
-        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
-        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
-        tentativa++;
-    }
+function feedNegativo2() {
+
+    tentativa++;
 
     //Código inserido pelo Davi
-    window.parent.postMessage({ 
-      'func': 'registerAwsner',
-      'id_slide': '1',
-      'correct': 'false'
-    }, "*" )
-    
+    window.parent.postMessage({
+        'func': 'registerAnswer',
+        'id_slide': id_slide,
+        'correct': 'false',
+        'tentativa': tentativa
+    }, "*")
+
+    console.log('enviou para o app');
+    console.log('numero da tentativa: ' + tentativa);
+    console.log('id_slide: ' + id_slide);
+
 }
 
 
 // Função de Feedback Negativo (3 tentativas)
 
-function feedNegativo3(){
-    //inserir abaixo a quantidade máxima de tentativas:
-    var numeroMaximoTentativa = 3;
-    
-    if (tentativa < numeroMaximoTentativa) {
-        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
-        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ERROU.\nTENTE NOVAMENTE.");
+    function feedNegativo3() {
+
         tentativa++;
-        
-    }else{
-        console.log("TENTATIVA "+ tentativa+" DE "+numeroMaximoTentativa);
-        alert("ESSA FOI SUA TENTATIVA "+tentativa+" DE "+numeroMaximoTentativa+".\nVOCE ATINGIU O NUMERO MAXIMO DE ERROS.\nCHAME O EDUCADOR PARA AJUDA-LO.");
-        tentativa++;
+
+        //Código inserido pelo Davi
+        window.parent.postMessage({
+            'func': 'registerAnswer',
+            'id_slide': id_slide,
+            'correct': 'false',
+            'tentativa': tentativa
+        }, "*")
+
+        console.log('enviou para o app');
+        console.log('numero da tentativa: ' + tentativa);
+        console.log('id_slide: ' + id_slide);
+
     }
-
-    //Código inserido pelo Davi
-    window.parent.postMessage({ 
-      'func': 'registerAwsner',
-      'id_slide': '1',
-      'correct': 'false'
-    }, "*" )
-
-}
 
 
 //Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)
