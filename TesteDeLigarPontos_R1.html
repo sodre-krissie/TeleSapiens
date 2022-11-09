@@ -18,18 +18,36 @@
 </style>
 
 <body>
-    <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-        <g id="linha">
-            <line stroke-width="3" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="300" x2="500" y1="150" x1="150" stroke="#000" fill="none"/>
-        </g>
-    </svg>
+    <canvas id="meucanvas"></canvas>
 </body>
 </html>
 
 <script>
 
-document.getElementById("linha").onclick = function(){
-    console.log("Clicou");
+var canvas = document.getElementById("meucanvas");
+var ctx = canvas.getContext("2d");
+
+let WIDTH = document.documentElement.clientWidth;
+let HEIGHT = document.documentElement.clientHeight;
+
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
+
+for (var x=0; x<=WIDTH; x=x+50){
+  ctx.moveTo(x,0);
+  ctx.lineTo(x,HEIGHT);
 }
+
+for (var y=0; y<=HEIGHT; y=y+50){
+  ctx.moveTo(0,y);
+  ctx.lineTo(WIDTH,y);
+}
+
+ctx.strokeStyle = "#f00";
+ctx.stroke();
+
+context.beginPath();
+  context.arc(300, 200, 100, 0, Math.PI/2, true);
+  context.stroke();
 
 </script>

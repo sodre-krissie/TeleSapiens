@@ -78,14 +78,8 @@ let id_slide = 0;
 let descricao = "descrição de atividade";
 
 function feedNegativo2() {
-    var numeroMaximoTentativa = 2;
-    tentativa++;
-
-    if (tentativa < numeroMaximoTentativa) {
-      console.log("Alternativa errada");
-    }else{
-      let tentativa = 0;
-    }
+  var numeroMaximoTentativa = 2;
+  tentativa++;
 
     //Código inserido pelo Davi
     window.parent.postMessage({
@@ -101,36 +95,41 @@ function feedNegativo2() {
     console.log('numero da tentativa: ' + tentativa);
     console.log('id_slide: ' + id_slide);
 
+
+    // Zerando as tentativas quando chega no limite:
+        if (tentativa < numeroMaximoTentativa) {         
+        }else{        
+            tentativa=0;
+        }
 }
 
 
 // Função de Feedback Negativo (3 tentativas)
 
-    function feedNegativo3() {
-        var numeroMaximoTentativa = 3;
-        tentativa++;
+function feedNegativo3() {
+  var numeroMaximoTentativa = 3;
+  tentativa++;
 
-        if (tentativa < numeroMaximoTentativa) {
-          console.log("Alternativa errada");
-        }else{
-          let tentativa = 0;
-        }    
+  //Código inserido pelo Davi
+  window.parent.postMessage({
+      'func': 'registerAnswer',
+      'id_slide': id_slide,
+      'correct': 'false',
+      'descricao': descricao,
+      'tentativa': tentativa,
+      'max-tentativas': 3
+  }, "*")
 
-        //Código inserido pelo Davi
-        window.parent.postMessage({
-            'func': 'registerAnswer',
-            'id_slide': id_slide,
-            'correct': 'false',
-            'descricao': descricao,
-            'tentativa': tentativa,
-            'max-tentativas': 3
-        }, "*")
+  console.log('enviou para o app');
+  console.log('numero da tentativa: ' + tentativa);
+  console.log('id_slide: ' + id_slide);
 
-        console.log('enviou para o app');
-        console.log('numero da tentativa: ' + tentativa);
-        console.log('id_slide: ' + id_slide);
-
-    }
+    // Zerando as tentativas quando chega no limite:
+      if (tentativa < numeroMaximoTentativa) {         
+      }else{        
+          tentativa=0;
+      }
+}
 
 // Função de Feedback Positivo
 
