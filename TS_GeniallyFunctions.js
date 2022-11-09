@@ -156,7 +156,7 @@ function feedNegativo2() {
     <div>Marcação Slide</div>
     <script>
     let id_slide = X;
-    let descricao = Y;
+    let descricao = "Y";
     </script>
     */
 
