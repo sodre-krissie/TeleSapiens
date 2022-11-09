@@ -74,11 +74,18 @@ function takeScreenshot() {
 // Função de Feedback Negativo (2 tentativas)
 
 let tentativa = 0;
-//let id_slide = 0;
+let id_slide = 0;
+let descricao = "descrição de atividade";
 
 function feedNegativo2() {
-
+    var numeroMaximoTentativa = 2;
     tentativa++;
+
+    if (tentativa < numeroMaximoTentativa) {
+      console.log("Alternativa errada");
+    }else{
+      let tentativa = 0;
+    }
 
     //Código inserido pelo Davi
     window.parent.postMessage({
@@ -86,7 +93,8 @@ function feedNegativo2() {
       'id_slide': id_slide,
       'correct': 'false',
       'descricao': descricao,
-      'tentativa': tentativa
+      'tentativa': tentativa,
+      'max-tentativas': 2
     }, "*")
 
     console.log('enviou para o app');
@@ -99,8 +107,14 @@ function feedNegativo2() {
 // Função de Feedback Negativo (3 tentativas)
 
     function feedNegativo3() {
-
+        var numeroMaximoTentativa = 3;
         tentativa++;
+
+        if (tentativa < numeroMaximoTentativa) {
+          console.log("Alternativa errada");
+        }else{
+          let tentativa = 0;
+        }    
 
         //Código inserido pelo Davi
         window.parent.postMessage({
@@ -108,7 +122,8 @@ function feedNegativo2() {
             'id_slide': id_slide,
             'correct': 'false',
             'descricao': descricao,
-            'tentativa': tentativa
+            'tentativa': tentativa,
+            'max-tentativas': 3
         }, "*")
 
         console.log('enviou para o app');
@@ -137,7 +152,7 @@ function feedNegativo2() {
 
     }
 
-    /*
+    /* Inserir em cada tela do genially, alterando os valores de X e Y:
     <div>Marcação Slide</div>
     <script>
     let id_slide = X;
