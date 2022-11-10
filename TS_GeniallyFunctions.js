@@ -76,7 +76,7 @@ function takeScreenshot() {
 let tentativa = 0;
 var id_slide = 0;
 let descricao = "descrição de atividade";
-let resposta_correta = "resposta da atividade";
+var resposta_correta = "alternativa correta";
 
 function feedNegativo2() {
   var numeroMaximoTentativa = 2;
@@ -158,14 +158,19 @@ function feedNegativo3() {
     }
 
     /* Inserir em cada tela do genially, alterando os valores de X e Y:
+    <div>Marcação de Slide</div>
+    <script>
+    let id_slide = X;
+    let descricao = "Y";
+    let resposta_correta = "resposta da atividade";
+    </script>
+    
     <div>Marcação Slide</div>
     <script>
     let id_slide = X;
     let descricao = "Y";
     </script>
-    */
 
-    /*
     <div>Resposta Correta</div>
     <script>
     let resposta_correta = "resposta da atividade";
