@@ -74,8 +74,9 @@ function takeScreenshot() {
 // Função de Feedback Negativo (2 tentativas)
 
 let tentativa = 0;
-let id_slide = 0;
+var id_slide = 0;
 let descricao = "descrição de atividade";
+let resposta_correta = "resposta da atividade";
 
 function feedNegativo2() {
   var numeroMaximoTentativa = 2;
@@ -88,7 +89,8 @@ function feedNegativo2() {
       'correct': 'false',
       'descricao': descricao,
       'tentativa': tentativa,
-      'max-tentativas': 2
+      'max-tentativas': 2,
+      'resposta_correta': resposta_correta
     }, "*")
 
     console.log('enviou para o app');
@@ -117,7 +119,8 @@ function feedNegativo3() {
       'correct': 'false',
       'descricao': descricao,
       'tentativa': tentativa,
-      'max-tentativas': 3
+      'max-tentativas': 3,
+      'resposta_correta': resposta_correta
   }, "*")
 
   console.log('enviou para o app');
@@ -137,17 +140,20 @@ function feedNegativo3() {
 
       tentativa++;
 
-      //Código inserido pelo Davi
+      /*Código inserido pelo Davi (retirado em 09/11/2022)
       window.parent.postMessage({
         'func': 'registerAnswer',
         'id_slide': id_slide,
         'descricao': descricao,
         'tentativa': tentativa        
-      }, "*")
+      }, "*")*/
 
       console.log('enviou para o app');
       console.log('numero da tentativa: ' + tentativa);
       console.log('id_slide: ' + id_slide);
+
+      //resetar as tentativas quando acertar:
+      tentativa = 0;
 
     }
 
@@ -159,6 +165,13 @@ function feedNegativo3() {
     </script>
     */
 
+    /*
+    <div>Resposta Correta</div>
+    <script>
+    let resposta_correta = "resposta da atividade";
+    </script>
+    
+    */
 
 //Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)
 /*

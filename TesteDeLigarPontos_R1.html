@@ -43,11 +43,60 @@ for (var y=0; y<=HEIGHT; y=y+50){
   ctx.lineTo(WIDTH,y);
 }
 
-ctx.strokeStyle = "#f00";
+ctx.strokeStyle = "#4FC3F7";
 ctx.stroke();
 
-context.beginPath();
-  context.arc(300, 200, 100, 0, Math.PI/2, true);
-  context.stroke();
+</script>
 
+<!--Outra tela pro genially-->
+
+<body>
+    <canvas id="meucanvas2"></canvas>
+</body>
+</html>
+
+<script>
+
+var canvas = document.getElementById("meucanvas2");
+var ctx = canvas.getContext("2d");
+
+let WIDTH = document.documentElement.clientWidth;
+let HEIGHT = document.documentElement.clientHeight;
+
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
+
+
+
+ctx.strokeStyle = "#f00";
+ctx.beginPath();
+ctx.arc(100, 100, 25, 0, 2 * Math.PI, false);
+ctx.stroke();
+context.closePath();
+
+
+ctx.strokeStyle = "#f00";
+ctx.beginPath();
+ctx.arc(300, 250, 25, 0, 2 * Math.PI, false);
+ctx.stroke();
+//context.closePath();
+
+
+document.getElementById("V01").onclick = function (){
+        console.log("V01 pressionado");
+
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.lineTo(300,250);
+    ctx.strokeStyle = "#E65100";
+    ctx.stroke();
+    }
+
+</script>
+
+<button id="V01">Aperta</button>
+<script>
+    document.getElementById("V01").onclick = function (){
+        console.log("V01 pressionado");
+    }
 </script>
