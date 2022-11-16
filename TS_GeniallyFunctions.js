@@ -27,14 +27,14 @@ var htmlToImage = document.createElement('script');
 htmlToImage.src = "https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.10.8/html-to-image.min.js";
 document.head.appendChild(htmlToImage);
 
-/*var html2canvas = document.createElement('script');
+var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 document.head.appendChild(html2canvas);
 
 var FileSaver = document.createElement('script');
 FileSaver.src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
 document.head.appendChild(FileSaver);
-*/
+
 var download = document.createElement('script');
 download.src = "https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js";
 document.head.appendChild(download);
@@ -54,28 +54,44 @@ window.parent.postMessage({
   'func': 'callAuthModal',
 }, "*" )
 
-//Função de Screenshot (printscreen)
-var node = document.body;
 
-function takeScreenshot() {
-  console.log("Screenshot iniciado");
-  
+// Solução do Davi para acabar com o corte da tela na função de print:
 
-  htmlToImage.toPng(document.body)
-  .then(function () {
-    console.log(blob)
-          var reader = new FileReader();
-          reader.readAsDataURL(blob);
-          reader.onloadend = function () {
-              var base64data = reader.result;
-              console.log(base64data);
-              localStorage.setItem('user_canvas_screenshot', base64data);
-          }
-  });
-  console.log("Screenshot finalizado");
+var altura = 0
+var largura = 0
+
+function ajustarTela(){
+
+  altura = window.innerWidth;
+  largura = window.innerHeight;
+
+  console.log(altura);
+  console.log(largura);
+
 }
 
+//Função de Screenshot (printscreen)
+
+
+function takeScreenshot() {
+
+  console.log("Screenshot iniciado");
+    htmlToImage.toPng(document.body)
+    .then(function () {
+      console.log(blob)
+            var reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onloadend = function () {
+                var base64data = reader.result;
+                console.log(base64data);
+                localStorage.setItem('user_canvas_screenshot', base64data);
+            }
+    });
+      console.log("Screenshot finalizado");
+}
+  
   /*
+ 
   html2canvas(document.body).then(canvas => {
       canvas.toBlob(function (blob) {
           console.log(blob)

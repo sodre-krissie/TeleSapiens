@@ -18,7 +18,7 @@
 </style>
 
 <body>
-    <canvas id="meucanvas"></canvas>
+    <canvas id="meucanvas" onclick="showCoords(event)"></canvas>
 </body>
 </html>
 
@@ -46,9 +46,32 @@ for (var y=0; y<=HEIGHT; y=y+50){
 ctx.strokeStyle = "#4FC3F7";
 ctx.stroke();
 
+var v01a = 100;
+var v01b = 200;
+        ctx.beginPath(); 
+        ctx.moveTo(v01a,v01b);
+
+function showCoords(event) {
+    var x1 = event.clientX;
+    var y1 = event.clientY;
+    console.log("X: " + x1 + ", Y: " + y1);
+    
+        
+        ctx.lineTo(x1,y1);
+        ctx.closePath();
+        ctx.strokeStyle = "#E65100";
+        ctx.stroke();
+
+        console.log("Linha finalizada");
+
+    return;
+}
+
 </script>
 
-<!--Outra tela pro genially-->
+<!--Outra tela pro genially
+
+    ctx.lineTo(0,0);
 
 <body>
     <canvas id="meucanvas2"></canvas>
@@ -99,4 +122,4 @@ document.getElementById("V01").onclick = function (){
     document.getElementById("V01").onclick = function (){
         console.log("V01 pressionado");
     }
-</script>
+</script>-->
