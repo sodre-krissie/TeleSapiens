@@ -22,13 +22,22 @@ Códigos iniciam a partir desse ponto */
 
 
 //não trocar "var" por "const" ou "let"
-var html2canvas = document.createElement('script');
+
+var htmlToImage = document.createElement('script');
+htmlToImage.src = "https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.10.8/html-to-image.min.js";
+document.head.appendChild(htmlToImage);
+
+/*var html2canvas = document.createElement('script');
 html2canvas.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 document.head.appendChild(html2canvas);
 
 var FileSaver = document.createElement('script');
 FileSaver.src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
 document.head.appendChild(FileSaver);
+*/
+var download = document.createElement('script');
+download.src = "https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js";
+document.head.appendChild(download);
 
 var jQuery = document.createElement('script');
 jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
@@ -46,9 +55,27 @@ window.parent.postMessage({
 }, "*" )
 
 //Função de Screenshot (printscreen)
+var node = document.body;
 
 function takeScreenshot() {
   console.log("Screenshot iniciado");
+  
+
+  htmlToImage.toPng(document.body)
+  .then(function () {
+    console.log(blob)
+          var reader = new FileReader();
+          reader.readAsDataURL(blob);
+          reader.onloadend = function () {
+              var base64data = reader.result;
+              console.log(base64data);
+              localStorage.setItem('user_canvas_screenshot', base64data);
+          }
+  });
+  console.log("Screenshot finalizado");
+}
+
+  /*
   html2canvas(document.body).then(canvas => {
       canvas.toBlob(function (blob) {
           console.log(blob)
@@ -69,7 +96,7 @@ function takeScreenshot() {
       'func': 'takeScreenshotParent',
       'id_slide': '1'
   }, "*")
-}
+}*/
 
 // Função de Feedback Negativo (2 tentativas)
 
@@ -134,19 +161,19 @@ function feedNegativo3() {
       }
 }
 
-// Função de Feedback Positivo
+/* Função de Feedback Positivo
 
     function feedPositivo(){
 
       tentativa++;
 
-      /*Código inserido pelo Davi (retirado em 09/11/2022)
+      Código inserido pelo Davi (retirado em 09/11/2022)
       window.parent.postMessage({
         'func': 'registerAnswer',
         'id_slide': id_slide,
         'descricao': descricao,
         'tentativa': tentativa        
-      }, "*")*/
+      }, "*")
 
       console.log('enviou para o app');
       console.log('numero da tentativa: ' + tentativa);
@@ -155,7 +182,7 @@ function feedNegativo3() {
       //resetar as tentativas quando acertar:
       tentativa = 0;
 
-    }
+    }*/
 
     /* Inserir em cada tela do genially, alterando os valores de X e Y:
     <div>Marcação de Slide</div>
