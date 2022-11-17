@@ -54,7 +54,6 @@ window.parent.postMessage({
   'func': 'callAuthModal',
 }, "*" )
 
-
 // Solução do Davi para acabar com o corte da tela na função de print:
 
 var altura = 0
@@ -73,7 +72,7 @@ function ajustarTela(){
 //Função de Screenshot (printscreen)
 
 
-function takeScreenshot() {
+function takeScreenshot(id_slide) {
   var element = document.getElementsByClassName(
     "genially-view-not-is-mobile"
   )[0];
@@ -127,15 +126,16 @@ function takeScreenshot() {
   });
   */
 
+  let tentativa = 0;
+  /*var id_slide = 0;
+  var descricao = "descrição de atividade";
+  var resposta_correta = "0";*/
+
+
 // Função de Feedback Negativo (2 tentativas)
 
-let tentativa = 0;
-var id_slide = 0;
-let descricao = "descrição de atividade";
-var resposta_correta = "alternativa correta";
-
-function feedNegativo2() {
-  var numeroMaximoTentativa = 2;
+function feedNegativo(numeroMaximoTentativa, id_slide, descricao, resposta_correta) {
+  //var numeroMaximoTentativa = 2;
   tentativa++;
 
     //Código inserido pelo Davi
@@ -145,13 +145,14 @@ function feedNegativo2() {
       'correct': 'false',
       'descricao': descricao,
       'tentativa': tentativa,
-      'max-tentativas': 2,
-      'resposta_correta': resposta_correta
+      'max-tentativas': numeroMaximoTentativa,
+      'resposta_correta': resposta_correta,
     }, "*")
 
     console.log('enviou para o app');
     console.log('numero da tentativa: ' + tentativa);
     console.log('id_slide: ' + id_slide);
+    console.log("alternativa: "+resposta_correta);
 
 
     // Zerando as tentativas quando chega no limite:
@@ -163,6 +164,8 @@ function feedNegativo2() {
 
 
 // Função de Feedback Negativo (3 tentativas)
+/*
+//Desativada em 17/11/2022
 
 function feedNegativo3() {
   var numeroMaximoTentativa = 3;
@@ -176,26 +179,28 @@ function feedNegativo3() {
       'descricao': descricao,
       'tentativa': tentativa,
       'max-tentativas': 3,
-      'resposta_correta': resposta_correta
+      'resposta_correta': resposta_correta,
   }, "*")
 
   console.log('enviou para o app');
   console.log('numero da tentativa: ' + tentativa);
   console.log('id_slide: ' + id_slide);
+  console.log("alternativa: "+resposta_correta);
 
     // Zerando as tentativas quando chega no limite:
       if (tentativa < numeroMaximoTentativa) {         
       }else{        
           tentativa=0;
       }
-}
+}*/
 
 //Função de Feedback Positivo
 
-    function feedPositivo(){
+    function feedPositivo(resposta_correta){
 
       tentativa++;
       console.log("Resposta certa");
+      console.log("alternativa: "+resposta_correta);
 
       //resetar as tentativas quando acertar:
       tentativa = 0;

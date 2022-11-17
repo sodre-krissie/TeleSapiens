@@ -17,19 +17,40 @@
     <button class="TS_botao" onclick="takeScreenshot()" onresize="ajustarTela()">Take Screenshot</button><script></script>
     <!--<button class="TS_botao" onclick="feedNegativo2()">Feedback Negativo 1</button><script></script>
     <button class="TS_botao" onclick="feedNegativo2()">Feedback Negativo 2</button><script></script>
-    <button class="TS_botao" onclick="feedNegativo3()">Feedback Negativo 3</button><script></script>
+    <button class="TS_botao" onclick="feedNegativo3()">Feedback Negativo 3</button><script></script>-->
 
     <button class="TS_botao" onclick="feedPositivo()">Feedback Positivo</button><script></script>
 
-    <button class="TS_botao" onclick="opacityHideToVisible()">Feedback Positivo</button><script></script>
--->
+    <!--<button class="TS_botao" onclick="opacityHideToVisible()">Feedback Positivo</button><script></script>
+
     <button class="TS_botao" onclick="TS_botaoVermelho()">Botão Vermelho</button><script></script>
     <button class="TS_botao" onclick="TS_marcaTexto()">Marca Texto</button><script></script>
     <button class="TS_botao" onclick="TS_limpaTela()">Limpa Tela</button><script></script>
     <canvas id="TS_canvas"></canvas><script></script>
-    <!--<button id="avance">Avançar</button><script></script>
+    <button id="avance">Avançar</button><script></script>
 
     <input type="checkbox">-->
     
     
 </body>
+
+
+
+<div>Marcação de Slide</div>
+<script>
+    setTimeout(() => {   
+        let id_slide = 10;
+        let resposta_correta = "A";
+        console.log("id_slide: "+id_slide);
+        console.log("alternativa: "+resposta_correta);
+    }, 3000);
+</script>
+
+
+<button class="TS_botao" onclick="feedNegativo(2, 'id_slide', 'descricao', 'A')"></button>
+<script></script>
+
+<button class="TS_botao" onclick="feedPositivo('A')"></button>
+<script></script>
+
+<button class="TS_botao" onclick="takeScreenshot('id_slide')" onresize="ajustarTela()"></button><script></script>
