@@ -24,7 +24,7 @@ Códigos iniciam a partir desse ponto */
 //não trocar "var" por "const" ou "let"
 
 var htmlToImage = document.createElement('script');
-htmlToImage.src = "https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.10.8/html-to-image.min.js";
+htmlToImage.src = "https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.10.8/html-to-image.js";
 document.head.appendChild(htmlToImage);
 
 var html2canvas = document.createElement('script');
@@ -74,7 +74,25 @@ function ajustarTela(){
 
 
 function takeScreenshot() {
+  var element = document.getElementsByClassName(
+    "genially-view-not-is-mobile"
+  )[0];
 
+    //Código inserido pelo Davi
+    window.parent.postMessage({
+      'func': 'takeScreenshotParent',
+      'id_slide': id_slide
+    }, "*")
+
+  htmlToImage.toPng(element).then(function (blob) {
+    console.log(blob);
+    localStorage.setItem("user_canvas_screenshot", blob);
+    
+  });
+}
+
+
+ /*
   console.log("Screenshot iniciado");
     htmlToImage.toPng(document.body)
     .then(function () {
@@ -90,7 +108,7 @@ function takeScreenshot() {
       console.log("Screenshot finalizado");
 }
   
-  /*
+  
  
   html2canvas(document.body).then(canvas => {
       canvas.toBlob(function (blob) {
@@ -107,12 +125,7 @@ function takeScreenshot() {
       console.log("Screenshot finalizado");
 
   });
-  //Código inserido pelo Davi
-  window.parent.postMessage({
-      'func': 'takeScreenshotParent',
-      'id_slide': '1'
-  }, "*")
-}*/
+  */
 
 // Função de Feedback Negativo (2 tentativas)
 
@@ -177,13 +190,17 @@ function feedNegativo3() {
       }
 }
 
-/* Função de Feedback Positivo
+//Função de Feedback Positivo
 
     function feedPositivo(){
 
       tentativa++;
+      console.log("Resposta certa");
 
-      Código inserido pelo Davi (retirado em 09/11/2022)
+      //resetar as tentativas quando acertar:
+      tentativa = 0;
+/* 
+      //Código inserido pelo Davi (retirado em 09/11/2022)
       window.parent.postMessage({
         'func': 'registerAnswer',
         'id_slide': id_slide,
@@ -195,10 +212,9 @@ function feedNegativo3() {
       console.log('numero da tentativa: ' + tentativa);
       console.log('id_slide: ' + id_slide);
 
-      //resetar as tentativas quando acertar:
-      tentativa = 0;
-
-    }*/
+      
+*/
+    }
 
     /* Inserir em cada tela do genially, alterando os valores de X e Y:
     <div>Marcação de Slide</div>
