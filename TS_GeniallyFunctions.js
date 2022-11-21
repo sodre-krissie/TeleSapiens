@@ -251,5 +251,65 @@ let isHold = false
       document.getElementById("TS_canvas").style.opacity = "0.5";
       console.log("Marca texto acionado");
     }
+
+
+  //Função de Ligar Pontos
+    //Canvas com grid:
+      var _canvas = document.getElementById("meucanvas");
+      var ctx = _canvas.getContext("2d");
+
+      let wIDTH = document.documentElement.clientWidth;
+      let hEIGHT = document.documentElement.clientHeight;
+
+      _canvas.width = wIDTH;
+      _canvas.height = hEIGHT;
+
+      for (var x=0; x<=wIDTH; x=x+50){
+        ctx.moveTo(x,0);
+        ctx.lineTo(x,hEIGHT);
+      }
+
+      for (var y=0; y<=hEIGHT; y=y+50){
+        ctx.moveTo(0,y);
+        ctx.lineTo(wIDTH,y);
+      }
+
+      ctx.strokeStyle = "#4FC3F7";
+      ctx.stroke();
+
+      //resumo das IDs:
+      let A1 = document.getElementById("pontoA1");
+      let A2 = document.getElementById("pontoA2");
+      let R1 = document.getElementById("pontoR1");
+      let R2 = document.getElementById("pontoR2");
+
+      //Função dos botões
+
+      function pontoAlternativa(idPonto){
+          let x1 = event.clientX;
+          let y1 = event.clientY;
+          //let A1Acionado = true;
+          console.log(idPonto+"; X: " + x1 + ", Y: " + y1);
+
+              ctx.beginPath(); 
+              ctx.moveTo(x1,y1);
+
+      }
+
+      function pontoResposta(idPonto){
+          let x2 = event.clientX;
+          let y2 = event.clientY;
+          //let R1Acionado = true;
+          console.log(idPonto+"; X: " + x2 + ", Y: " + y2);
+
+          
+              ctx.lineTo(x2,y2);
+              ctx.closePath();
+              ctx.strokeStyle = "#E65100";
+              ctx.stroke();
+              //ctx.beginPath();
+              //ctx.closePath();
+              console.log("Linha finalizada");
+      }
   
 console.log("Aplicação finalizada");

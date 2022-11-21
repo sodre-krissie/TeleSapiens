@@ -1,0 +1,129 @@
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    #TS_canvas {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        border: 3px solid darkgray;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .verifica{
+        width: 100px;
+        height: 100px;
+        background-color: greenyellow;
+        color: black;
+        z-index: 1;
+    }
+    .ponto{
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        border-radius: 50%;
+        color: black;
+        z-index: 1;
+    }
+    #pontoA1{
+        position: absolute;
+        top: 100px;
+        left: 150px;
+    }
+    #pontoA2{
+        position: absolute;
+        top: 500px;
+        left: 150px;
+    }
+    #pontoR1{
+        position: absolute;
+        top: 100px;
+        right: 400px;
+    }
+    #pontoR2{
+        position: absolute;
+        top: 500px;
+        right: 400px;
+    }
+</style>
+<canvas id="meucanvas"></canvas>
+<button class="ponto" id="pontoA1" onclick="pontoAlternativa('Ponto A1')">A1</button>
+<button class="ponto" id="pontoR1" onclick="pontoResposta('Ponto R1')">R1</button>
+<button class="ponto" id="pontoA2" onclick="pontoAlternativa('Ponto A2')">A2</button>
+<button class="ponto" id="pontoR2" onclick="pontoResposta('Ponto R2')">R2</button>
+<button class="verifica" onclick="verificaQuestao()">Verifica</button>
+
+
+<script>
+//Canvas com grid:
+var _canvas = document.getElementById("meucanvas");
+var ctx = _canvas.getContext("2d");
+
+let WIDTH = document.documentElement.clientWidth;
+let HEIGHT = document.documentElement.clientHeight;
+
+_canvas.width = WIDTH;
+_canvas.height = HEIGHT;
+
+for (var x=0; x<=WIDTH; x=x+50){
+  ctx.moveTo(x,0);
+  ctx.lineTo(x,HEIGHT);
+}
+
+for (var y=0; y<=HEIGHT; y=y+50){
+  ctx.moveTo(0,y);
+  ctx.lineTo(WIDTH,y);
+}
+
+ctx.strokeStyle = "#4FC3F7";
+ctx.stroke();
+
+//resumo das IDs:
+let A1 = document.getElementById("pontoA1");
+let A2 = document.getElementById("pontoA2");
+let R1 = document.getElementById("pontoR1");
+let R2 = document.getElementById("pontoR2");
+let A1Acionado = false;
+let R1Acionado = false;
+
+//Função dos botões
+
+function pontoAlternativa(idPonto){
+    let x1 = event.clientX;
+    let y1 = event.clientY;
+    let A1Acionado = true;
+    console.log(idPonto+"; X: " + x1 + ", Y: " + y1);
+
+        ctx.beginPath(); 
+        ctx.moveTo(x1,y1);
+
+}
+
+function pontoResposta(idPonto){
+    let x2 = event.clientX;
+    let y2 = event.clientY;
+    let R1Acionado = true;
+    console.log(idPonto+"; X: " + x2 + ", Y: " + y2);
+
+    
+        ctx.lineTo(x2,y2);
+        ctx.closePath();
+        ctx.strokeStyle = "#E65100";
+        ctx.stroke();
+        //ctx.beginPath();
+        //ctx.closePath();
+        console.log("Linha finalizada");
+}
+
+function verificaQuestao(){
+    if((A1Acionado==true)&&(R1Acionado==true)){
+        alert("Certo");
+    }else{
+        console.error("Não rolou");
+    }
+}
+
+
+</script>
