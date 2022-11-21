@@ -44,9 +44,6 @@ jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 document.head.appendChild(jQuery);
 
 
-//Botão de avançar fica escondido até alguma função disparar para ele aparecer
-//document.getElementById("avance").style.visibility = "hidden";
-
 console.log("Aplicação iniciada");
 
 //Código inserido pelo Davi
@@ -90,42 +87,6 @@ function takeScreenshot(id_slide) {
   });
 }
 
-
- /*
-  console.log("Screenshot iniciado");
-    htmlToImage.toPng(document.body)
-    .then(function () {
-      console.log(blob)
-            var reader = new FileReader();
-            reader.readAsDataURL(blob);
-            reader.onloadend = function () {
-                var base64data = reader.result;
-                console.log(base64data);
-                localStorage.setItem('user_canvas_screenshot', base64data);
-            }
-    });
-      console.log("Screenshot finalizado");
-}
-  
-  
- 
-  html2canvas(document.body).then(canvas => {
-      canvas.toBlob(function (blob) {
-          console.log(blob)
-          var reader = new FileReader();
-          reader.readAsDataURL(blob);
-          reader.onloadend = function () {
-              var base64data = reader.result;
-              console.log(base64data);
-              localStorage.setItem('user_canvas_screenshot', base64data);
-          }
-      });
-
-      console.log("Screenshot finalizado");
-
-  });
-  */
-
   let tentativa = 0;
   /*var id_slide = 0;
   var descricao = "descrição de atividade";
@@ -162,38 +123,6 @@ function feedNegativo(numeroMaximoTentativa, id_slide, descricao, resposta_corre
         }
 }
 
-
-// Função de Feedback Negativo (3 tentativas)
-/*
-//Desativada em 17/11/2022
-
-function feedNegativo3() {
-  var numeroMaximoTentativa = 3;
-  tentativa++;
-
-  //Código inserido pelo Davi
-  window.parent.postMessage({
-      'func': 'registerAnswer',
-      'id_slide': id_slide,
-      'correct': 'false',
-      'descricao': descricao,
-      'tentativa': tentativa,
-      'max-tentativas': 3,
-      'resposta_correta': resposta_correta,
-  }, "*")
-
-  console.log('enviou para o app');
-  console.log('numero da tentativa: ' + tentativa);
-  console.log('id_slide: ' + id_slide);
-  console.log("alternativa: "+resposta_correta);
-
-    // Zerando as tentativas quando chega no limite:
-      if (tentativa < numeroMaximoTentativa) {         
-      }else{        
-          tentativa=0;
-      }
-}*/
-
 //Função de Feedback Positivo
 
     function feedPositivo(resposta_correta){
@@ -204,6 +133,14 @@ function feedNegativo3() {
 
       //resetar as tentativas quando acertar:
       tentativa = 0;
+
+      //inserido em 18/11/2022
+      window.parent.postMessage(
+        {
+          func: "feedbackPositivo",
+        },
+        "*"
+      );
 /* 
       //Código inserido pelo Davi (retirado em 09/11/2022)
       window.parent.postMessage({
@@ -220,91 +157,6 @@ function feedNegativo3() {
       
 */
     }
-
-    /* Inserir em cada tela do genially, alterando os valores de X e Y:
-    <div>Marcação de Slide</div>
-    <script>
-    let id_slide = X;
-    let descricao = "Y";
-    let resposta_correta = "resposta da atividade";
-    </script>
-    
-    <div>Marcação Slide</div>
-    <script>
-    let id_slide = X;
-    let descricao = "Y";
-    </script>
-
-    <div>Resposta Correta</div>
-    <script>
-    let resposta_correta = "resposta da atividade";
-    </script>
-    
-    */
-
-//Função de jogo da memória (selecionar figuras similares permanece as opções corretas na tela)
-/*
-const cards = document.querySelectorAll('.memory-card');
-
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
-
-function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
-
-  this.classList.add('flip');
-
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
-
-    return;
-  }
-
-  secondCard = this;
-  checkForMatch();
-}
-
-function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
-  isMatch ? disableCards() : unflipCards();
-}
-
-function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
-
-  resetBoard();
-}
-
-function unflipCards() {
-  lockBoard = true;
-
-  setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
-
-    resetBoard();
-  }, 1500);
-}
-
-function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
-}
-
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos;
-  });
-})();
-
-cards.forEach(card => card.addEventListener('click', flipCard));
-*/
 
 // Função de desenho livre
 
