@@ -21,7 +21,7 @@
     height: 100%;
     margin: 0;
     background-color: #FFD500;
-    border: none;
+    border: solid 1px #ECF0F1;
     border-radius: 5px;
     cursor: pointer;
     }
@@ -31,7 +31,7 @@
     height: 100%;
     margin: 0;
     background-color: #01B6ED;
-    border: none;
+    border: solid 1px #ECF0F1;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -41,7 +41,7 @@
     height: 100%;
     margin: 0;
     background-color: #000;
-    border: none;
+    border: solid 1px #ECF0F1;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -51,7 +51,7 @@
     height: 100%;
     margin: 0;
     background-color: #94C11F;
-    border: none;
+    border: solid 1px #ECF0F1;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -61,7 +61,7 @@
     height: 100%;
     margin: 0;
     background-color: #FF0000;
-    border: none;
+    border: solid 1px #ECF0F1;
     border-radius: 5px;
     cursor: pointer;
 }
