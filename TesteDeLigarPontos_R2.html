@@ -53,7 +53,7 @@
 <button class="ponto" id="pontoR1" onclick="pontoResposta('Ponto R1')">R1</button>
 <button class="ponto" id="pontoA2" onclick="pontoAlternativa('Ponto A2')">A2</button>
 <button class="ponto" id="pontoR2" onclick="pontoResposta('Ponto R2')">R2</button>
-<button class="verifica" onclick="verificaQuestao()">Verifica</button>
+<button class="verifica" onclick="verificaQuestao('A1R1')">Verifica</button>
 
 
 <script>
@@ -85,15 +85,15 @@ let A1 = document.getElementById("pontoA1");
 let A2 = document.getElementById("pontoA2");
 let R1 = document.getElementById("pontoR1");
 let R2 = document.getElementById("pontoR2");
-let A1Acionado = false;
-let R1Acionado = false;
+var A1Acionado = false;
+var R1Acionado = false;
 
 //Função dos botões
 
 function pontoAlternativa(idPonto){
     let x1 = event.clientX;
     let y1 = event.clientY;
-    let A1Acionado = true;
+    A1Acionado = true;
     console.log(idPonto+"; X: " + x1 + ", Y: " + y1);
 
         ctx.beginPath(); 
@@ -117,12 +117,9 @@ function pontoResposta(idPonto){
         console.log("Linha finalizada");
 }
 
-function verificaQuestao(){
-    if((A1Acionado==true)&&(R1Acionado==true)){
-        alert("Certo");
-    }else{
-        console.error("Não rolou");
-    }
+function verificaQuestao(respostaCerta){
+    console.log(respostaCerta);
+    console.log(A1Acionado);
 }
 
 
