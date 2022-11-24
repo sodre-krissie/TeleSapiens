@@ -29,31 +29,43 @@
     }
     #pontoA1{
         position: absolute;
-        top: 100px;
+        top: 20px;
         left: 150px;
     }
     #pontoA2{
         position: absolute;
-        top: 500px;
+        top: 150px;
+        left: 150px;
+    }
+    #pontoA3{
+        position: absolute;
+        top: 280px;
         left: 150px;
     }
     #pontoR1{
         position: absolute;
-        top: 100px;
+        top: 20px;
         right: 400px;
     }
     #pontoR2{
         position: absolute;
-        top: 500px;
+        top: 150px;
+        right: 400px;
+    }
+    #pontoR3{
+        position: absolute;
+        top: 280px;
         right: 400px;
     }
 </style>
 <canvas id="meucanvas"></canvas>
-<button class="ponto" id="pontoA1" onclick="pontoAlternativa('Ponto A1')">A1</button>
-<button class="ponto" id="pontoR1" onclick="pontoResposta('Ponto R1')">R1</button>
-<button class="ponto" id="pontoA2" onclick="pontoAlternativa('Ponto A2')">A2</button>
-<button class="ponto" id="pontoR2" onclick="pontoResposta('Ponto R2')">R2</button>
-<button class="verifica" onclick="verificaQuestao('A1R1')">Verifica</button>
+<button class="ponto" id="pontoA1" onclick="pontoAlternativa('A1')">A1</button>
+<button class="ponto" id="pontoR1" onclick="pontoResposta('R1')">R1</button>
+<button class="ponto" id="pontoA2" onclick="pontoAlternativa('A2')">A2</button>
+<button class="ponto" id="pontoR2" onclick="pontoResposta('R2')">R2</button>
+<button class="ponto" id="pontoA3" onclick="pontoAlternativa('A3')">A3</button>
+<button class="ponto" id="pontoR3" onclick="pontoResposta('R3')">R3</button>
+<button class="verifica" onclick="verificaQuestao('A1R1, A2R2 e A3R3')">Verifica</button>
 
 
 <script>
@@ -81,30 +93,54 @@ ctx.strokeStyle = "#4FC3F7";
 ctx.stroke();
 
 //resumo das IDs:
-let A1 = document.getElementById("pontoA1");
-let A2 = document.getElementById("pontoA2");
-let R1 = document.getElementById("pontoR1");
-let R2 = document.getElementById("pontoR2");
-var A1Acionado = false;
-var R1Acionado = false;
+let A1 = false;
+let A2 = false;
+let A3 = false;
+let A4 = false;
+let R1 = false;
+let R2 = false;
+let R3 = false;
+let R4 = false;
+
 
 //Função dos botões
 
 function pontoAlternativa(idPonto){
     let x1 = event.clientX;
     let y1 = event.clientY;
-    A1Acionado = true;
     console.log(idPonto+"; X: " + x1 + ", Y: " + y1);
 
         ctx.beginPath(); 
         ctx.moveTo(x1,y1);
 
+        if(idPonto==="A1"){
+            return A1 = true;
+        }else if(idPonto==="A2"){
+            return A2 = true;
+        }else if(idPonto==="A3"){
+            return A3 = true;
+        }else if(idPonto==="A4"){
+            return A4 = true;
+        }else{
+            console.log("idPonto não está correto");
+        }
+
+        /*if((R1=false)||(R2=false)||(R3=false)||(R4=false)){
+            ctx.beginPath(); 
+            ctx.moveTo(x1,y1);
+        }else{          
+            ctx.lineTo(x1,y1);
+            ctx.closePath();
+            //ctx.strokeStyle = "#E65100";
+            ctx.stroke();
+            console.log("Linha finalizada");
+        }*/
 }
 
 function pontoResposta(idPonto){
     let x2 = event.clientX;
     let y2 = event.clientY;
-    let R1Acionado = true;
+    //idPonto = true;
     console.log(idPonto+"; X: " + x2 + ", Y: " + y2);
 
     
@@ -115,11 +151,51 @@ function pontoResposta(idPonto){
         //ctx.beginPath();
         //ctx.closePath();
         console.log("Linha finalizada");
+
+        if(idPonto==="R1"){
+            return R1 = true;
+        }else if(idPonto==="R2"){
+            return R2 = true;
+        }else if(idPonto==="R3"){
+            return R3 = true;
+        }else if(idPonto==="R4"){
+            return R4 = true;
+        }else{
+            console.log("idPonto não está correto");
+        }
+
+        /*if((A1=false)||(A2=false)||(A3=false)||(R4=false)){
+            ctx.beginPath(); 
+            ctx.moveTo(x2,y2);
+        }else{          
+            ctx.lineTo(x2,y2);
+            ctx.closePath();
+            //ctx.strokeStyle = "#E65100";
+            ctx.stroke();
+            console.log("Linha finalizada");
+        }*/
+        
 }
 
+//verifica se as alternativas foram ligadas corretamente:
 function verificaQuestao(respostaCerta){
-    console.log(respostaCerta);
-    console.log(A1Acionado);
+    
+    //console.log(pontoAlternativa(idPonto)+" e "+pontoResposta(idPonto));
+    if((A1==true&&R1==true)||(A2==true&&R2==true)||(A3==true&&R3==true)||(A4==true&&R4==true)){
+        console.warn("Você ligou os pontos corretamente!");
+    }else{
+        console.log("A combinação correta é: "+respostaCerta);
+        console.error("Como diria Raul Seixas: Tente outra vez.");
+        //return [A1,A2,A3,A4]=false;
+        return A1 = false;
+        return R1 = false;
+        return A2 = false;
+        return R2 = false;
+        return A3 = false;
+        return R3 = false;
+        return A4 = false;
+        return R4 = false;
+    }
 }
 
 
