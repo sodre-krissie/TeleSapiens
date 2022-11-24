@@ -113,7 +113,7 @@ function pontoAlternativa(idPonto){
         ctx.beginPath(); 
         ctx.moveTo(x1,y1);
 
-        if(idPonto==="A1"){
+        if(idPonto==='A1'){
             return A1 = true;
         }else if(idPonto==="A2"){
             return A2 = true;
@@ -125,16 +125,6 @@ function pontoAlternativa(idPonto){
             console.log("idPonto não está correto");
         }
 
-        /*if((R1=false)||(R2=false)||(R3=false)||(R4=false)){
-            ctx.beginPath(); 
-            ctx.moveTo(x1,y1);
-        }else{          
-            ctx.lineTo(x1,y1);
-            ctx.closePath();
-            //ctx.strokeStyle = "#E65100";
-            ctx.stroke();
-            console.log("Linha finalizada");
-        }*/
 }
 
 function pontoResposta(idPonto){
@@ -148,8 +138,6 @@ function pontoResposta(idPonto){
         ctx.closePath();
         ctx.strokeStyle = "#E65100";
         ctx.stroke();
-        //ctx.beginPath();
-        //ctx.closePath();
         console.log("Linha finalizada");
 
         if(idPonto==="R1"){
@@ -164,25 +152,23 @@ function pontoResposta(idPonto){
             console.log("idPonto não está correto");
         }
 
-        /*if((A1=false)||(A2=false)||(A3=false)||(R4=false)){
-            ctx.beginPath(); 
-            ctx.moveTo(x2,y2);
-        }else{          
-            ctx.lineTo(x2,y2);
-            ctx.closePath();
-            //ctx.strokeStyle = "#E65100";
-            ctx.stroke();
-            console.log("Linha finalizada");
-        }*/
-        
+      return function verificaQuestao(){}  
 }
 
 //verifica se as alternativas foram ligadas corretamente:
 function verificaQuestao(respostaCerta){
+
+    if(A1==true&&R1==true){
+        A1R1 = true;
+        console.warn("A1R1 OK");
+    }else if(A2==true&&R2==true){
+        A2R2 = true;
+        console.warn("A2R2 OK");
+    
     
     //console.log(pontoAlternativa(idPonto)+" e "+pontoResposta(idPonto));
-    if((A1==true&&R1==true)||(A2==true&&R2==true)||(A3==true&&R3==true)||(A4==true&&R4==true)){
-        console.warn("Você ligou os pontos corretamente!");
+    /*if((A1==true&&R1==true)||(A2==true&&R2==true)||(A3==true&&R3==true)||(A4==true&&R4==true)){
+        console.warn("Você ligou os pontos corretamente!");*/
     }else{
         console.log("A combinação correta é: "+respostaCerta);
         console.error("Como diria Raul Seixas: Tente outra vez.");
