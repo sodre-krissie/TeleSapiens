@@ -30,32 +30,32 @@
     #pontoA1{
         position: absolute;
         top: 20px;
-        left: 150px;
+        left: 100px;
     }
     #pontoA2{
         position: absolute;
         top: 150px;
-        left: 150px;
+        left: 100px;
     }
     #pontoA3{
         position: absolute;
         top: 280px;
-        left: 150px;
+        left: 100px;
     }
     #pontoR1{
         position: absolute;
         top: 20px;
-        right: 400px;
+        right: 100px;
     }
     #pontoR2{
         position: absolute;
         top: 150px;
-        right: 400px;
+        right: 100px;
     }
     #pontoR3{
         position: absolute;
         top: 280px;
-        right: 400px;
+        right: 100px;
     }
 </style>
 <canvas id="meucanvas"></canvas>
@@ -140,35 +140,27 @@ function pontoResposta(idPonto){
         ctx.stroke();
         console.log("Linha finalizada");
 
-        if(idPonto==="R1"){
-            return R1 = true;
-        }else if(idPonto==="R2"){
-            return R2 = true;
-        }else if(idPonto==="R3"){
-            return R3 = true;
-        }else if(idPonto==="R4"){
-            return R4 = true;
-        }else{
-            console.log("idPonto não está correto");
-        }
+    if(idPonto==="R1"){
+        return R1 = true;
+    }else if(idPonto==="R2"){
+        return R2 = true;
+    }else if(idPonto==="R3"){
+        return R3 = true;
+    }else if(idPonto==="R4"){
+        return R4 = true;
+    }else{
+        console.log("idPonto não está correto");
+    }
 
-      return function verificaQuestao(){}  
 }
 
 //verifica se as alternativas foram ligadas corretamente:
 function verificaQuestao(respostaCerta){
 
-    if(A1==true&&R1==true){
-        A1R1 = true;
-        console.warn("A1R1 OK");
-    }else if(A2==true&&R2==true){
-        A2R2 = true;
-        console.warn("A2R2 OK");
+    //[PROBLEMA]: não importa a ordem, ele continua validando
     
-    
-    //console.log(pontoAlternativa(idPonto)+" e "+pontoResposta(idPonto));
-    /*if((A1==true&&R1==true)||(A2==true&&R2==true)||(A3==true&&R3==true)||(A4==true&&R4==true)){
-        console.warn("Você ligou os pontos corretamente!");*/
+    if((A1==true&&R1==true)||(A2==true&&R2==true)||(A3==true&&R3==true)||(A4==true&&R4==true)){
+        console.warn("Você ligou os pontos corretamente!");
     }else{
         console.log("A combinação correta é: "+respostaCerta);
         console.error("Como diria Raul Seixas: Tente outra vez.");

@@ -1,0 +1,97 @@
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    #TS_canvas {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        border: 3px solid darkgray;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .verifica{
+        width: 100px;
+        height: 100px;
+        background-color: greenyellow;
+        color: black;
+        z-index: 1;
+    }
+    .ponto{
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        border-radius: 50%;
+        color: black;
+        z-index: 1;
+    }
+    #pontoA1{
+        position: absolute;
+        top: 20px;
+        left: 100px;
+    }
+    #pontoA2{
+        position: absolute;
+        top: 150px;
+        left: 100px;
+    }
+    #pontoA3{
+        position: absolute;
+        top: 280px;
+        left: 100px;
+    }
+    #pontoR1{
+        position: absolute;
+        top: 20px;
+        right: 100px;
+    }
+    #pontoR2{
+        position: absolute;
+        top: 150px;
+        right: 100px;
+    }
+    #pontoR3{
+        position: absolute;
+        top: 280px;
+        right: 100px;
+    }
+</style>
+<canvas id="meucanvas"></canvas>
+<button class="ponto" id="pontoA1" data-i="A1">A1</button>
+<button class="ponto" id="pontoR1" data-i="R1">R1</button>
+<button class="ponto" id="pontoA2" data-i="A2">A2</button>
+<button class="ponto" id="pontoR2" data-i="R2">R2</button>
+<button class="ponto" id="pontoA3" data-i="A3">A3</button>
+<button class="ponto" id="pontoR3" data-i="R3">R3</button>
+<button class="verifica" onclick="verificaQuestao('A1R1, A2R2 e A3R3')">Verifica</button>
+
+
+<script>
+//Canvas com grid:
+var _canvas = document.getElementById("meucanvas");
+var ctx = _canvas.getContext("2d");
+
+let WIDTH = document.documentElement.clientWidth;
+let HEIGHT = document.documentElement.clientHeight;
+
+_canvas.width = WIDTH;
+_canvas.height = HEIGHT;
+
+for (var x=0; x<=WIDTH; x=x+50){
+  ctx.moveTo(x,0);
+  ctx.lineTo(x,HEIGHT);
+}
+
+for (var y=0; y<=HEIGHT; y=y+50){
+  ctx.moveTo(0,y);
+  ctx.lineTo(WIDTH,y);
+}
+
+ctx.strokeStyle = "#4FC3F7";
+ctx.stroke();
+
+
+
+</script>
