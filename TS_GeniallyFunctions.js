@@ -172,6 +172,7 @@ canvas.height = HEIGHT;
 let d = 8;
 let diametro = d;
 
+
   function drawPoint(context, x, y) {
     console.log(`x: ${x}, y: ${y}`)
     context.beginPath();		  
@@ -194,7 +195,29 @@ let isHold = false
       return null
     }
   drawPoint(context, event.clientX, event.clientY)
-  }   
+  }
+  
+  //Tentativa de criar um Undo:
+  var cPushArray = new Array();
+  var cStep = -1;
+
+	
+function cPush() {
+    cStep++;
+    if (cStep < cPushArray.length) { cPushArray.length = cStep; }
+    cPushArray.push(document.getElementById('myCanvas').toDataURL());
+}
+
+function cUndo() {
+  if (cStep > 0) {
+      cStep--;
+      var canvasPic = new Image();
+      canvasPic.src = cPushArray[cStep];
+      canvasPic.onload = function () { context.drawImage(canvasPic, 0, 0); }
+  }
+}
+
+//final da tentativa de criar Undo
 
     //Função Botão Amarelo
     function TS_botaoAmarelo(){
@@ -247,7 +270,7 @@ let isHold = false
     //Função Marca Texto
     function TS_marcaTexto(){
       context.fillStyle='rgb(204,255,51)';
-      diametro = 20;
+      diametro = 15;
       document.getElementById("TS_canvas").style.opacity = "0.5";
       console.log("Marca texto acionado");
     }

@@ -58,65 +58,37 @@
         right: 100px;
     }
 </style>
+<script src="LigarPontos.js"></script>
 <canvas id="meucanvas"></canvas>
-<button class="ponto" id="pontoA1" data-i="A1">A1</button>
-<button class="ponto" id="pontoR1" data-i="R1">R1</button>
-<button class="ponto" id="pontoA2" data-i="A2">A2</button>
-<button class="ponto" id="pontoR2" data-i="R2">R2</button>
-<button class="ponto" id="pontoA3" data-i="A3">A3</button>
-<button class="ponto" id="pontoR3" data-i="R3">R3</button>
+<button class="ponto" id="pontoA1" data-i="aA1" onclick="pontoAlternativa('A1')">A1</button>
+<button class="ponto" id="pontoR1" data-i="rR1" onclick="pontoResposta('R1')">R1</button>
+<button class="ponto" id="pontoA2" data-i="aA2">A2</button>
+<button class="ponto" id="pontoR2" data-i="rR2">R2</button>
+<button class="ponto" id="pontoA3" data-i="aA3">A3</button>
+<button class="ponto" id="pontoR3" data-i="rR3">R3</button>
 <button class="verifica" onclick="verificaQuestao('A1R1, A2R2 e A3R3')">Verifica</button>
 
-
 <script>
-//Canvas com grid:
-var _canvas = document.getElementById("meucanvas");
-var ctx = _canvas.getContext("2d");
+    //Canvas com grid:
+    var _canvas = document.getElementById("meucanvas");
+    var ctx = _canvas.getContext("2d");
 
-let WIDTH = document.documentElement.clientWidth;
-let HEIGHT = document.documentElement.clientHeight;
+    let WIDTH = document.documentElement.clientWidth;
+    let HEIGHT = document.documentElement.clientHeight;
 
-_canvas.width = WIDTH;
-_canvas.height = HEIGHT;
+    _canvas.width = WIDTH;
+    _canvas.height = HEIGHT;
 
-for (var x=0; x<=WIDTH; x=x+50){
-  ctx.moveTo(x,0);
-  ctx.lineTo(x,HEIGHT);
-}
+    for (var x=0; x<=WIDTH; x=x+50){
+    ctx.moveTo(x,0);
+    ctx.lineTo(x,HEIGHT);
+    }
 
-for (var y=0; y<=HEIGHT; y=y+50){
-  ctx.moveTo(0,y);
-  ctx.lineTo(WIDTH,y);
-}
-
-ctx.strokeStyle = "#4FC3F7";
-ctx.stroke();
-
-//combinações:
-
-
-
-function init(){
-//resumo das IDs:
-let A01 = false;
-let A02 = false;
-let A03 = false;
-let A04 = false;
-let R01 = false;
-let R02 = false;
-let R03 = false;
-let R04 = false;
-}
-
-let combinacoesCertas = [
-    [A1, R1],
-    [A2, R2],
-    [A3, R3],
-    [A4, R4],
-];
-
-init();
-console.warn("Até aqui, ok");
-
-
+    for (var y=0; y<=HEIGHT; y=y+50){
+    ctx.moveTo(0,y);
+    ctx.lineTo(WIDTH,y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = "#4FC3F7";
+    ctx.stroke();
 </script>
