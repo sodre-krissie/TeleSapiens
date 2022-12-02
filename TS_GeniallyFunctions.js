@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="https://bit.ly/3f2nSUc">
 <div class="funçao">TeleSapiens_GeniallyFunctions</div>
-<script defer type="application/javascript" src="https://bit.ly/3zhBstH"></script>
+<script defer type="application/javascript" src="https://bit.ly/3zhBstH" crossorigin="anonymous"></script>
 
 
 /\  Copiar até aqui e inserir na tela do Genial.ly
@@ -276,7 +276,7 @@ function cUndo() {
     }
 
 
-  //Função de Ligar Pontos
+  /*//Função de Ligar Pontos
     //Canvas com grid:
       var _canvas = document.getElementById("meucanvas");
       var ctx = _canvas.getContext("2d");
@@ -333,6 +333,6 @@ function cUndo() {
               //ctx.beginPath();
               //ctx.closePath();
               console.log("Linha finalizada");
-      }
+      }*/
   
 console.log("Aplicação finalizada");
