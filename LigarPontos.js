@@ -1,6 +1,6 @@
 
-// let alternativasPontos = ['A1', 'A2', 'A3', 'A4']
-// let respostasPontos = ['R1', 'R2', 'R3', 'R4']
+// let alternativasLista = ['A1', 'A2', 'A3', 'A4'];
+// let respostasLista = ['R1', 'R2', 'R3', 'R4'];
 
 let alternativasPontos = false;
 let respostasPontos = false;
@@ -11,6 +11,9 @@ function check(){
     ctx.closePath();
 
     alternativasPontos = false;
+
+    let botaoVerifica = document.getElementById("botaoVerifica");
+        botaoVerifica.style.visibility = "visible";
 }
 
 
@@ -35,9 +38,10 @@ function pontoAlternativa(idPonto){
         ctx.moveTo(x,y);
     }
 
+    let alternativaClicada = idPonto.toString();
 
     alternativasPontos = true;
-    return alternativasPontos;
+    return alternativasPontos, alternativaClicada;
 }
 
 
@@ -64,4 +68,10 @@ function pontoResposta(idPonto){
 
     respostasPontos = true;
     return respostasPontos;
+}
+
+function verificaQuestao(respostaCorreta){
+    console.warn("Resposta correta: "+ respostaCorreta);
+    console.log(alternativaClicada);
+        
 }
