@@ -60,13 +60,14 @@
 </style>
 <script src="LigarPontos.js"></script>
 <canvas id="meucanvas"></canvas>
-<button class="ponto" id="pontoA1" data-i="aA1" onclick="pontoAlternativa('A1')">A1</button>
-<button class="ponto" id="pontoR1" data-i="rR1" onclick="pontoResposta('R1')">R1</button>
-<button class="ponto" id="pontoA2" data-i="aA2">A2</button>
-<button class="ponto" id="pontoR2" data-i="rR2">R2</button>
-<button class="ponto" id="pontoA3" data-i="aA3">A3</button>
-<button class="ponto" id="pontoR3" data-i="rR3">R3</button>
-<button class="verifica" onclick="verificaQuestao('A1R1, A2R2 e A3R3')">Verifica</button>
+<button class="ponto" id="pontoA1" onclick="pontoAlternativa('A1')">A1</button>
+<button class="ponto" id="pontoR1" onclick="pontoResposta('R1')">R1</button>
+<button class="ponto" id="pontoA2" onclick="pontoAlternativa('A2')">A2</button>
+<button class="ponto" id="pontoR2" onclick="pontoResposta('R2')">R2</button>
+<button class="ponto" id="pontoA3" onclick="pontoAlternativa('A3')">A3</button>
+<button class="ponto" id="pontoR3" onclick="pontoResposta('R3')">R3</button>
+
+<button class="verifica" id="verifica" onclick="verificaQuestao('A1R1, A2R2 e A3R3')">Verifica</button>
 
 <script>
     //Canvas com grid:
