@@ -72,6 +72,6 @@ function pontoResposta(idPonto){
 
 function verificaQuestao(respostaCorreta){
     console.warn("Resposta correta: "+ respostaCorreta);
-    console.log(alternativaClicada);
+    // console.log(alternativaClicada);
         
 }
