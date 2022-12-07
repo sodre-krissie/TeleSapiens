@@ -57,20 +57,21 @@
         top: 280px;
         right: 100px;
     }
-    #botaoVerifica{
+    .verifica{
         visibility: hidden;
     }
 </style>
 <script src="LigarPontos.js"></script>
 <canvas id="meucanvas"></canvas>
-<button class="ponto" id="pontoA1" onclick="pontoAlternativa('A1')" data-i="A1R1">A1</button>
-<button class="ponto" id="pontoR1" onclick="pontoResposta('R1')">R1</button>
+<button class="ponto" id="pontoA1" onclick="pontoAlternativa('A1')" data-i="A1">A1</button>
+<button class="ponto" id="pontoR1" onclick="pontoResposta('R1')" data-i="R1">R1</button>
 <button class="ponto" id="pontoA2" onclick="pontoAlternativa('A2')">A2</button>
 <button class="ponto" id="pontoR2" onclick="pontoResposta('R2')">R2</button>
 <button class="ponto" id="pontoA3" onclick="pontoAlternativa('A3')">A3</button>
 <button class="ponto" id="pontoR3" onclick="pontoResposta('R3')">R3</button>
 
 <button class="verifica" id="botaoVerifica" onclick="verificaQuestao('A1R1, A2R2 e A3R3')">Verifica</button>
+<button class="verifica" id="botaoCheck" onclick="verificaCheck()">Check</button>
 
 <script>
     //Canvas com grid:
