@@ -122,12 +122,15 @@ function pontoResposta(idPonto){
     return respostasPontos;
 }
 
-// function verificaQuestao(respostaCorreta){
-// console.log(respostaCorreta);
-//     if(alternativaClicada==="A1"){
-//         console.log('Você acertou');
-//     }else{
-//         return;
-//     }
+// padrão de IDs:
+let pontoA1 = document.getElementById("pontoA1");
 
-// }
+function verificaQuestao(respostaCorreta){
+console.log(respostaCorreta);
+    if(pontoA1.onclick){
+        console.warn("POnto A1")
+    }else{
+        console.error("Não")
+    }
+
+}
