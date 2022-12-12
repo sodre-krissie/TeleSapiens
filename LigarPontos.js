@@ -63,6 +63,7 @@ function check(){
 
     let botaoVerifica = document.getElementById("botaoVerifica");
         botaoVerifica.style.visibility = "visible";
+
 }
 
 
@@ -123,14 +124,13 @@ function pontoResposta(idPonto){
 }
 
 // padrão de IDs:
-let pontoA1 = document.getElementById("pontoA1");
+// let pontoA1 = document.getElementById("pontoA1");
 
+
+
+const combinacoesCertas = ["A1R1", "A2R2", "A3R3", "A4R4"];
+
+combinacoesCertas.forEach(verificaQuestao);
 function verificaQuestao(respostaCorreta){
-console.log(respostaCorreta);
-    if(pontoA1.onclick){
-        console.warn("POnto A1")
-    }else{
-        console.error("Não")
-    }
-
+    console.log(respostaCorreta);
 }

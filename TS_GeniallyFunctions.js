@@ -3,7 +3,13 @@
 
 <link rel="stylesheet" href="https://bit.ly/3f2nSUc">
 <div class="funçao">TeleSapiens_GeniallyFunctions</div>
-<script defer type="application/javascript" src="https://bit.ly/3zhBstH" crossorigin="anonymous"></script>
+<script defer type="application/javascript" src="https://bit.ly/3zhBstH"></script>
+
+
+
+<link rel="stylesheet" href="z">
+<div class="funçao">TeleSapiens_GeniallyFunctions</div>
+<script defer type="application/javascript" src="x"></script>
 
 
 /\  Copiar até aqui e inserir na tela do Genial.ly
