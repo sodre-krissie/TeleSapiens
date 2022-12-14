@@ -7,9 +7,10 @@
 
 
 
-<link rel="stylesheet" href="z">
+<link rel="stylesheet" href="https://genially.ensinamais.com.br/TS_style.css">
 <div class="funçao">TeleSapiens_GeniallyFunctions</div>
-<script defer type="application/javascript" src="x"></script>
+<script defer type="application/javascript" src="https://genially.ensinamais.com.br/TS_GeniallyFunctions.js">
+</script>
 
 
 /\  Copiar até aqui e inserir na tela do Genial.ly

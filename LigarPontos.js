@@ -88,7 +88,7 @@ function pontoAlternativa(idPonto){
         ctx.moveTo(x,y);
     }
 
-    let alternativaClicada = idPonto;
+    let alternativaClicada = idPonto.toString();
     // let alternativaClicada = idPonto.toString();
     // let alternativaClicada = idPonto.target.getAttribute("data-i");
     console.log(alternativaClicada);
@@ -128,9 +128,18 @@ function pontoResposta(idPonto){
 
 
 
-const combinacoesCertas = ["A1R1", "A2R2", "A3R3", "A4R4"];
+// const combinacoesCertas = ["A1R1", "A2R2", "A3R3", "A4R4"];
 
-combinacoesCertas.forEach(verificaQuestao);
+// combinacoesCertas.forEach(verificaQuestao);
 function verificaQuestao(respostaCorreta){
-    console.log(respostaCorreta);
+
+    var isEqual = alternativaClicada === A1;
+
+    console.log(respostaCorreta, isEqual);
 }
+
+// var first = [ 1, 2, 3, 4, 5 ];
+// var second = [ 1, 2, 3, 4, 5 ];
+
+// var isEqual = first.toString() === second.toString();
+// console.log(isEqual);
