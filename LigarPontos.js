@@ -71,11 +71,28 @@ function pontoAlternativa(idPonto){
         ctx.moveTo(x,y);
     }
 
-    let alternativaClicada = idPonto.toString();
-    console.log(alternativaClicada);
+
+        if(idPonto==='A1'){
+            return
+            console.warn("Clicou em A1");
+        }else if(idPonto==='A2'){
+            console.warn("Clicou em A2");
+        }else{(idPonto==='A3')
+            console.warn("Clicou em A3");
+        } 
+
+   
+    // let alternativaClicada = idPonto.toString();
+    // console.log(alternativaClicada, typeof alternativaClicada);
 
     alternativasPontos = true;
-    return alternativasPontos, alternativaClicada;
+
+
+    return {
+        // alternativaClicada,
+        alternativasPontos
+
+    }
 }
 
 
@@ -107,5 +124,8 @@ function pontoResposta(idPonto){
 
 function verificaQuestao(respostaCorreta){
 
+
+
     console.log(respostaCorreta);
+
 }
