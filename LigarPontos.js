@@ -36,23 +36,6 @@ let respostasPontos = false;
 
 let espessuraLinha = 10;
 
-// let combinacoesCertas = [
-//     ['A1','R1'],
-// ];
-
-// function verificaQuestao(respostaCorreta){
-
-//     for (pos of combinacoesCertas){
-//         if (pos.every((item)=> item.includes(item))){
-//             alert("certo");
-//         }
-//     }
-    
-    
-//     console.warn("Resposta correta: "+ respostaCorreta);
-//     // console.log(alternativaClicada);
-        
-// }
 
 function check(){
     console.log("Checagem");
@@ -89,8 +72,6 @@ function pontoAlternativa(idPonto){
     }
 
     let alternativaClicada = idPonto.toString();
-    // let alternativaClicada = idPonto.toString();
-    // let alternativaClicada = idPonto.target.getAttribute("data-i");
     console.log(alternativaClicada);
 
     alternativasPontos = true;
@@ -123,23 +104,8 @@ function pontoResposta(idPonto){
     return respostasPontos;
 }
 
-// padrão de IDs:
-// let pontoA1 = document.getElementById("pontoA1");
 
-
-
-// const combinacoesCertas = ["A1R1", "A2R2", "A3R3", "A4R4"];
-
-// combinacoesCertas.forEach(verificaQuestao);
 function verificaQuestao(respostaCorreta){
 
-    var isEqual = alternativaClicada === A1;
-
-    console.log(respostaCorreta, isEqual);
+    console.log(respostaCorreta);
 }
-
-// var first = [ 1, 2, 3, 4, 5 ];
-// var second = [ 1, 2, 3, 4, 5 ];
-
-// var isEqual = first.toString() === second.toString();
-// console.log(isEqual);
