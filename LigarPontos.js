@@ -73,7 +73,6 @@ function pontoAlternativa(idPonto){
 
 
         if(idPonto==='A1'){
-            return
             console.warn("Clicou em A1");
         }else if(idPonto==='A2'){
             console.warn("Clicou em A2");
@@ -116,6 +115,14 @@ function pontoResposta(idPonto){
         ctx.beginPath(); 
         ctx.moveTo(x,y);
     }
+
+        if(idPonto==='R1'){
+            console.warn("Clicou em R1");
+        }else if(idPonto==='R2'){
+            console.warn("Clicou em R2");
+        }else{(idPonto==='R3')
+            console.warn("Clicou em R3");
+        }
 
     respostasPontos = true;
     return respostasPontos;
