@@ -1,0 +1,43 @@
+<html>
+    <link href="/04 - Codes/00_Telesapiens/01_Ensina Mais/TeleSapiens/TS_style.css" rel="stylesheet" type="text/css">
+    <body>
+        <input type="checkbox" id="CheckboxPositivo" onclick="CheckboxPositivo()">
+        <input type="checkbox" id="CheckboxNegativo" onclick="CheckboxNegativo()">
+        <button class="TS_botaoAmarelo" onclick="checkboxVerifica()"></button>
+    </body>
+
+    <script>
+        
+        var checkPositivo = 0;
+        var checkNegativo = 0;
+
+        function CheckboxPositivo(){
+            checkPositivo = 1;
+
+            return checkPositivo;
+        }
+
+        function CheckboxNegativo(){
+            checkNegativo = 1;
+
+            return checkNegativo;
+        }
+
+        function checkboxVerifica(){
+            let botaoCheckboxPositivo = document.getElementById("CheckboxPositivo");
+            let botaoCheckboxNegativo = document.getElementById("CheckboxNegativo");
+            
+            if(checkPositivo === 1){
+                botaoCheckboxPositivo.style.backgroundColor = "#94C11F";
+                console.warn("Deu certo!");
+            }else if(checkNegativo === 1){
+                botaoCheckboxNegativo.style.backgroundColor = "#FF0000";
+                console.warn("Deu certo!");
+            }else{
+                console.log("Não funciona");
+            }
+        }
+
+    </script>
+
+</html>
