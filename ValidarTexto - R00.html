@@ -1,0 +1,45 @@
+<html>
+    <style>
+        .verifica{
+        /* position: absolute;
+        bottom:  30px;
+        right: 100px; */
+        visibility: hidden;
+    }
+    </style>
+    <body>
+        <h1>Qual letra vem depois do A?</h1>
+        <input id="textinput" name="textinput" value="" type="text">
+        <button onclick="validar(2, '10', 'Alfabeto', 'B')">Enviar</button>
+        <button class="verifica" id="botaoVerifica">Next</button>
+    </body>
+    <script>
+
+        function feedNegativo(numeroMaximoTentativa, id_slide, descricao, resposta_correta){
+            console.log("Tipo de Atividade: "+descricao);
+            console.log("Resposta Correta: "+resposta_correta);
+            alert("Você errou.");
+            
+        }
+
+        function avance(){
+            let botaoVerifica = document.getElementById("botaoVerifica");
+                botaoVerifica.style.visibility = "visible";
+        }
+
+        function validar(numeroMaximoTentativa, id_slide, descricao, resposta_correta){
+            var valor = document.getElementById("textinput").value;
+                valor = valor.toUpperCase();
+
+            if(resposta_correta===valor){
+                console.warn("Resposta Certa");
+                return avance();
+            }else{
+                console.error("Resposta errada");
+                return feedNegativo(numeroMaximoTentativa, id_slide, descricao, resposta_correta);
+            }
+
+        }
+
+    </script>
+</html>
