@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .funçao{
     background-color: #E74C3C;
     color: #ECF0F1;
@@ -90,6 +92,14 @@ input:checked{
     background-color: #4dc8f4;
     width: 100%;
     height: 100%;
+}
+
+#textinput{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#botaoAvance{
+    visibility: hidden;
 }
 
 .telaDeLigarPontos{

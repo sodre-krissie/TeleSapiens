@@ -1,37 +1,49 @@
 <html>
     <style>
-        .verifica{
-        /* position: absolute;
-        bottom:  30px;
-        right: 100px; */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        :root{
+            --tamanho-Fonte-input: 20px;
+        }
+
+        body{
+            font-family: 'Montserrat', sans-serif;
+        }
+        #textinput{
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #botaoAvance{
         visibility: hidden;
     }
     </style>
+    
     <body>
-        <h1>Qual letra vem depois do A?</h1>
-        <input id="textinput" name="textinput" value="" type="text">
-        <button onclick="validar(2, '10', 'Alfabeto', 'B')">Enviar</button>
-        <button class="verifica" id="botaoVerifica">Next</button>
+        <h1>QUEM DÁ COELHADA?</h1>
+        <input id="textinput" name="textinput" value="" type="text" style="text-transform: uppercase; font-size:20px;">
+        <button onclick="validar(2, '10', 'Alfabeto', 'MÔNICA SOUSA')">Enviar</button>
+        <button class="TS_botao" id="botaoAvance">Next</button>
     </body>
-    <script>
+    <script charset="UTF-8">
 
         function feedNegativo(numeroMaximoTentativa, id_slide, descricao, resposta_correta){
             console.log("Tipo de Atividade: "+descricao);
             console.log("Resposta Correta: "+resposta_correta);
-            alert("Você errou.");
-            
+            alert("Você errou.");            
         }
 
         function avance(){
-            let botaoVerifica = document.getElementById("botaoVerifica");
-                botaoVerifica.style.visibility = "visible";
+            let botaoAvance = document.getElementById("botaoAvance");
+                botaoAvance.style.visibility = "visible";
         }
 
         function validar(numeroMaximoTentativa, id_slide, descricao, resposta_correta){
             var valor = document.getElementById("textinput").value;
+                valor = valor.replace(/\s+/g, '');
                 valor = valor.toUpperCase();
 
-            if(resposta_correta===valor){
+            var respostaCorreta = resposta_correta.replace(/\s+/g, '');
+
+            if(respostaCorreta==valor){
                 console.warn("Resposta Certa");
                 return avance();
             }else{

@@ -3,13 +3,13 @@
 
 <link rel="stylesheet" href="https://bit.ly/3f2nSUc">
 <div class="funçao">TeleSapiens_GeniallyFunctions</div>
-<script defer type="application/javascript" src="https://bit.ly/3zhBstH"></script>
+<script charset="UTF-8" defer type="application/javascript" src="https://bit.ly/3zhBstH"></script>
 
 
 
 <link rel="stylesheet" href="https://genially.ensinamais.com.br/TS_style.css">
 <div class="funçao">TeleSapiens_GeniallyFunctions</div>
-<script defer type="application/javascript" src="https://genially.ensinamais.com.br/TS_GeniallyFunctions.js">
+<script charset="UTF-8" defer type="application/javascript" src="https://genially.ensinamais.com.br/TS_GeniallyFunctions.js">
 </script>
 
 
@@ -163,6 +163,30 @@ function feedNegativo(numeroMaximoTentativa, id_slide, descricao, resposta_corre
       
 */
     }
+
+//Função de validar resposta do input - Início
+  function avance(){
+    let botaoAvance = document.getElementById("botaoAvance");
+        botaoAvance.style.visibility = "visible";
+  }
+
+  function validar(numeroMaximoTentativa, id_slide, descricao, resposta_correta){
+    var valor = document.getElementById("textinput").value;
+        valor = valor.replace(/\s+/g, '');
+        valor = valor.toUpperCase();
+
+    var respostaCorreta = resposta_correta.replace(/\s+/g, '');
+
+    if(respostaCorreta==valor){
+        console.warn("Resposta Certa");
+        return avance();
+    }else{
+        console.error("Resposta errada");
+        return feedNegativo(numeroMaximoTentativa, id_slide, descricao, resposta_correta);
+    }
+
+  }
+//Função de validar resposta do input - Termina
 
 // Função de desenho livre
 
